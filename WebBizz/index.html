@@ -519,6 +519,18 @@
     .porto-thumb-delmas span{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(180,140,60,.5);font-weight:400;}
     .porto-thumb-delmas strong{font-size:20px;font-weight:600;color:#B48C3C;letter-spacing:.06em;}
     .porto-cat-gold{color:#B48C3C!important;}
+    /* Thumbnail Trois-Quart */
+    .porto-img-tq{
+      background:linear-gradient(135deg,#080B14 0%,#0E1124 50%,#0A0D18 100%);
+      display:flex;align-items:center;justify-content:center;
+      border-bottom:1px solid rgba(108,60,255,.14);
+    }
+    .porto-thumb-tq{
+      display:flex;flex-direction:column;align-items:center;gap:5px;
+      font-family:'Poppins',sans-serif;
+    }
+    .porto-thumb-tq span{font-size:11px;letter-spacing:.45em;text-transform:uppercase;color:rgba(140,100,255,.5);font-weight:400;}
+    .porto-thumb-tq strong{font-size:26px;font-weight:700;color:#9D7EFF;letter-spacing:.03em;}
 
     /* ── Bouton découvrir animé ── */
     .porto-cta{margin-top:16px;}
@@ -1054,6 +1066,8 @@
       padding-bottom:1px;transition:color .2s,border-color .2s;
     }
     .testi-client-link:hover{color:#D4C0FF;border-color:rgba(168,128,255,.6);}
+    .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:52px;}
+    .testi-grid .testi-real{margin-bottom:0;}
 
     /* ── BADGES PORTFOLIO ─────────────────────────────────── */
     .porto-badge-real{
@@ -1346,7 +1360,7 @@
   <div class="container">
     <div class="sec-head reveal">
       <h2>Nos <span class="grad-text">réalisations</span></h2>
-      <p class="porto-disclaimer">Quelques exemples de concepts de sites premium réalisés pour différents secteurs d'activité.</p>
+      <p class="porto-disclaimer">Des projets réels et des créations premium pour des clients qui nous font confiance.</p>
     </div>
     <div class="porto-grid reveal">
 
@@ -1403,28 +1417,25 @@
         </div>
       </a>
 
-      <!-- Carte 3 : Delmas & Associés -->
-      <a class="porto-card" href="delmas-associes.html" target="_blank">
-        <div class="porto-img porto-img-delmas">
-          <div class="porto-thumb-delmas">
-            <span>Delmas</span>
-            <strong>&amp; Associés</strong>
-          </div>
+      <!-- Carte 3 : Trois-Quart -->
+      <a class="porto-card" href="https://www.trois-quart.com" target="_blank" rel="noopener">
+        <div class="porto-img">
+          <img src="cap trois quart.png" alt="Trois-Quart — site créé par WebBizz">
         </div>
         <div class="porto-info">
-          <span class="porto-badge-concept">Concept</span>
-          <span class="porto-category porto-cat-gold">Cabinet d'avocat — Rouen</span>
-          <h3 class="porto-title">Delmas &amp; Associés</h3>
-          <p class="porto-desc">Conception d'un site sobre et haut de gamme pour un cabinet spécialisé en droit des affaires et accompagnement juridique.</p>
+          <span class="porto-badge-real">Projet réel</span>
+          <span class="porto-category">Marque créative</span>
+          <h3 class="porto-title">Trois-Quart</h3>
+          <p class="porto-desc">Site vitrine sur mesure conçu pour retranscrire l'univers et l'identité forte d'une marque créative. Design immersif, cohérence visuelle et expérience mémorable.</p>
           <div class="porto-tags">
-            <span class="porto-tag">Site professionnel</span>
-            <span class="porto-tag">Prise de rendez-vous</span>
-            <span class="porto-tag">Image de marque</span>
+            <span class="porto-tag">Site vitrine</span>
+            <span class="porto-tag">Identité visuelle</span>
+            <span class="porto-tag">Design premium</span>
           </div>
           <div class="porto-cta">
             <span class="porto-btn-discover">
               <span class="porto-btn-dot"></span>
-              Découvrir le concept
+              Découvrir le site
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </span>
           </div>
@@ -1594,24 +1605,44 @@
   <div class="container">
     <div class="sec-head reveal">
       <div class="tag">Avis clients</div>
-      <h2>Un premier projet.<br><span class="grad-text">Un vrai résultat.</span></h2>
+      <h2>Ils nous ont fait<br><span class="grad-text">confiance.</span></h2>
       <p>Les retours de nos clients parlent mieux que n'importe quelle promesse marketing.</p>
     </div>
 
-    <!-- Témoignage réel — PUR Réflexe -->
-    <div class="testi-real reveal">
-      <div class="testi-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <blockquote>« WebBizz a su saisir l'essence de notre marque pour créer un site moderne, fluide et professionnel. Un vrai travail sur mesure, avec une vraie écoute. Le résultat correspond exactement à ce que nous avions imaginé — et même au-delà. »</blockquote>
-      <div class="testi-client">
-        <div class="testi-client-av">PR</div>
-        <div class="testi-client-info">
-          <h5>PUR Réflexe</h5>
-          <p>Marque de détachants textiles premium</p>
+    <div class="testi-grid">
+
+      <!-- Témoignage réel — PUR Réflexe -->
+      <div class="testi-real reveal">
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
-        <a href="https://purreflexe.fr" target="_blank" rel="noopener" class="testi-client-link">Voir le site →</a>
+        <blockquote>« WebBizz a su saisir l'essence de notre marque pour créer un site moderne, fluide et professionnel. Un vrai travail sur mesure, avec une vraie écoute. Le résultat correspond exactement à ce que nous avions imaginé — et même au-delà. »</blockquote>
+        <div class="testi-client">
+          <div class="testi-client-av">PR</div>
+          <div class="testi-client-info">
+            <h5>PUR Réflexe</h5>
+            <p>Marque de détachants textiles premium</p>
+          </div>
+          <a href="https://purreflexe.fr" target="_blank" rel="noopener" class="testi-client-link">Voir le site →</a>
+        </div>
       </div>
+
+      <!-- Témoignage réel — Trois-Quart -->
+      <div class="testi-real reveal d1">
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote>« Une collaboration fluide du début à la fin. Le site retranscrit parfaitement notre univers et notre identité. »</blockquote>
+        <div class="testi-client">
+          <div class="testi-client-av">TQ</div>
+          <div class="testi-client-info">
+            <h5>Trois-Quart</h5>
+            <p>Marque créative</p>
+          </div>
+          <a href="https://www.trois-quart.com" target="_blank" rel="noopener" class="testi-client-link">Voir le site →</a>
+        </div>
+      </div>
+
     </div>
 
     <div class="early-grid">
