@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions Générales de Vente — WebBizz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--v:#6C3CFF;--r:#FF4D8D;--bg:#080A14;--bg2:#0D0F1E;--w:#fff;--g:#7A7E9A;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--w);line-height:1.7;-webkit-font-smoothing:antialiased;}
+    a{color:#B89EFF;text-decoration:none;border-bottom:1px solid rgba(184,158,255,.3);transition:color .2s;}
+    a:hover{color:#D4C0FF;}
+    .top-bar{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;background:rgba(8,10,20,.95);backdrop-filter:blur(12px);z-index:100;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;border:none;color:#fff;}
+    .logo-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#6C3CFF,#FF4D8D);display:flex;align-items:center;justify-content:center;}
+    .logo-mark svg{width:16px;height:16px;}
+    .logo-text{font-family:'Poppins',sans-serif;font-weight:700;font-size:17px;}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.55);text-decoration:none;border:none;transition:color .2s;}
+    .back-btn:hover{color:#fff;}
+    .page-wrap{max-width:780px;margin:0 auto;padding:64px 40px 100px;}
+    .page-header{margin-bottom:56px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07);}
+    .page-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:50px;background:rgba(108,60,255,.1);border:1px solid rgba(108,60,255,.22);font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;color:#B89EFF;margin-bottom:20px;letter-spacing:.3px;}
+    .page-label::before{content:'';width:4px;height:4px;border-radius:50%;background:#6C3CFF;}
+    h1{font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;margin-bottom:12px;}
+    .page-date{font-size:13px;color:rgba(255,255,255,.3);letter-spacing:.02em;}
+    .legal-section{margin-bottom:48px;}
+    h2{font-family:'Poppins',sans-serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07);}
+    h3{font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:rgba(255,255,255,.85);margin:20px 0 10px;}
+    p{font-size:14.5px;color:rgba(255,255,255,.62);margin-bottom:12px;}
+    ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+    ul li{font-size:14.5px;color:rgba(255,255,255,.62);padding-left:18px;position:relative;}
+    ul li::before{content:'—';position:absolute;left:0;color:rgba(108,60,255,.6);}
+    .info-box{background:rgba(108,60,255,.07);border:1px solid rgba(108,60,255,.18);border-radius:12px;padding:20px 24px;margin-bottom:20px;}
+    .info-box p{color:rgba(255,255,255,.75);margin-bottom:6px;}
+    .info-box p:last-child{margin-bottom:0;}
+    .info-box strong{color:#fff;font-weight:500;}
+    .price-table{width:100%;border-collapse:collapse;margin-bottom:20px;}
+    .price-table th{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);}
+    .price-table td{font-size:14px;color:rgba(255,255,255,.65);padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.05);}
+    .price-table tr:last-child td{border-bottom:none;}
+    .price-table .price-val{color:#B89EFF;font-weight:600;font-family:'Poppins',sans-serif;}
+    .highlight-box{background:rgba(255,138,61,.05);border:1px solid rgba(255,138,61,.18);border-radius:12px;padding:18px 22px;margin-bottom:20px;}
+    .highlight-box p{color:rgba(255,255,255,.72);margin-bottom:0;}
+    .page-footer{text-align:center;padding:32px 40px;border-top:1px solid rgba(255,255,255,.06);font-size:12px;color:rgba(255,255,255,.25);}
+    .page-footer a{font-size:12px;color:rgba(255,255,255,.3);border-bottom:none;}
+    .page-footer a:hover{color:#fff;}
+    .legal-nav{display:flex;justify-content:center;gap:24px;margin-bottom:16px;}
+    @media(max-width:640px){.page-wrap{padding:48px 24px 80px;}.top-bar{padding:16px 24px;}.price-table td,.price-table th{padding:10px 8px;font-size:13px;}}
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M2 4L7 16L10 9L13 16L18 4" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="logo-text">WebBizz</span>
+  </a>
+  <a href="index.html" class="back-btn">← Retour au site</a>
+</div>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="page-label">Légal</div>
+    <h1>Conditions Générales de Vente</h1>
+    <p class="page-date">Dernière mise à jour : mai 2025</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>1. Objet</h2>
+    <div class="info-box">
+      <p><strong>Prestataire :</strong> Jean-Christophe Viau — Entrepreneur individuel (micro-entreprise), nom commercial WebBizz</p>
+      <p><strong>SIRET :</strong> 950 754 051 00015</p>
+      <p><strong>Adresse :</strong> 24 rue Richard Wagner, 76000 Rouen, France</p>
+      <p><strong>Email :</strong> webbizz.agence@gmail.com</p>
+      <p><strong>Téléphone :</strong> 06 11 66 92 98</p>
+      <p><strong>TVA :</strong> Non assujetti — franchise en base (art. 293 B du CGI)</p>
+    </div>
+    <p>Les présentes Conditions Générales de Vente (CGV) régissent l'ensemble des relations commerciales entre WebBizz (ci-après « le Prestataire ») et tout client professionnel ou particulier (ci-après « le Client ») qui souhaite bénéficier des services de création de sites web.</p>
+    <p>Toute commande passée auprès de WebBizz implique l'acceptation pleine et entière des présentes CGV.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. Services proposés</h2>
+    <p>WebBizz propose les services suivants :</p>
+    <ul>
+      <li>Création de sites web vitrine sur mesure</li>
+      <li>Refonte et amélioration de sites existants</li>
+      <li>Optimisation du référencement naturel (SEO)</li>
+      <li>Maintenance et mise à jour de sites web</li>
+      <li>Conseil en stratégie digitale</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Tarifs</h2>
+    <p>Les tarifs en vigueur sont les suivants :</p>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Offre</th>
+          <th>Description</th>
+          <th>Tarif</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Starter</strong></td>
+          <td>Site vitrine 1 à 3 pages, design premium sur mesure, adapté mobile &amp; tablette, formulaire de contact, optimisation Google, mise en ligne rapide, 1 série de modifications incluse</td>
+          <td class="price-val">490 €</td>
+        </tr>
+        <tr>
+          <td><strong>Premium</strong></td>
+          <td>Site jusqu'à 5 pages, design premium sur mesure, animations &amp; micro-interactions, adapté mobile &amp; tablette, optimisation Google, blog intégré, accompagnement personnalisé, mise en ligne prioritaire, 3 séries de modifications incluses</td>
+          <td class="price-val">990 €</td>
+        </tr>
+        <tr>
+          <td><strong>Sur devis</strong></td>
+          <td>Projets spécifiques, boutiques en ligne, applications web, besoins particuliers</td>
+          <td class="price-val">Sur devis gratuit</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Tous les tarifs sont indiqués en euros TTC. WebBizz se réserve le droit de modifier ses tarifs à tout moment, les commandes en cours restant aux tarifs initialement convenus.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Commande et devis</h2>
+    <p>Toute commande fait l'objet d'un devis personnalisé établi gratuitement après un échange avec le Client. Le devis est valable 30 jours à compter de sa date d'émission.</p>
+    <p>La commande est considérée ferme et définitive dès réception du devis signé et du versement de l'acompte.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Modalités de paiement</h2>
+    <h3>Acompte à la commande</h3>
+    <p>Un acompte de <strong>50 % du montant total TTC</strong> est demandé à la signature du devis pour confirmer la commande et débuter les travaux.</p>
+    <h3>Solde à la livraison</h3>
+    <p>Le solde de <strong>50 % restant</strong> est à régler avant la mise en ligne définitive du site ou la livraison des fichiers finaux.</p>
+    <h3>Modes de paiement acceptés</h3>
+    <ul>
+      <li>Virement bancaire (IBAN communiqué sur la facture)</li>
+      <li>Chèque à l'ordre de WebBizz</li>
+      <li>Paiement en ligne par carte bancaire (selon disponibilité)</li>
+    </ul>
+    <div class="highlight-box">
+      <p>Tout retard de paiement entraîne l'application de pénalités de retard au taux légal en vigueur, ainsi qu'une indemnité forfaitaire de recouvrement de 40 €.</p>
+    </div>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Délais de livraison</h2>
+    <p>Les délais de livraison sont indiqués dans le devis et courent à compter de la réception de l'acompte ET de tous les éléments nécessaires fournis par le Client (textes, images, logo, accès, etc.).</p>
+    <p>WebBizz ne saurait être tenu responsable de tout retard lié à des délais de validation ou de fourniture d'éléments par le Client.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>7. Obligations du client</h2>
+    <p>Le Client s'engage à :</p>
+    <ul>
+      <li>Fournir dans les délais convenus tous les éléments nécessaires à la réalisation du projet</li>
+      <li>Valider ou donner ses retours sous 5 jours ouvrés à chaque étape de validation</li>
+      <li>S'assurer que les contenus fournis ne violent aucun droit de propriété intellectuelle</li>
+      <li>Régler les factures dans les délais convenus</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>8. Modifications et révisions</h2>
+    <p>Le nombre de révisions incluses est précisé dans chaque offre :</p>
+    <ul>
+      <li>Offre Starter : 1 série de modifications incluse</li>
+      <li>Offre Premium : 3 séries de modifications incluses</li>
+    </ul>
+    <p>Les modifications demandées après validation finale ou en dehors du périmètre initial feront l'objet d'un devis complémentaire.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>9. Propriété intellectuelle</h2>
+    <h3>Transfert des droits</h3>
+    <p>Après paiement intégral, le Client devient propriétaire des fichiers livrés. WebBizz cède au Client les droits d'utilisation, de reproduction et d'exploitation du site livré.</p>
+    <h3>Mention commerciale</h3>
+    <p>WebBizz se réserve le droit de mentionner le projet dans son portfolio et ses supports de communication, sauf accord contraire écrit du Client.</p>
+    <h3>Éléments tiers</h3>
+    <p>Les licences de polices, plugins, images ou autres éléments tiers éventuellement utilisés restent soumises aux conditions de leur auteur respectif.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>10. Droit de rétractation</h2>
+    <p>Pour les Clients particuliers (non professionnels), un droit de rétractation de 14 jours s'applique à compter de la date de commande, conformément à l'article L.221-18 du Code de la consommation.</p>
+    <p>Ce droit de rétractation ne s'applique pas si les travaux ont commencé avant la fin de ce délai, avec l'accord express du Client.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>11. Résiliation</h2>
+    <p>En cas de résiliation à l'initiative du Client après démarrage des travaux, l'acompte versé reste acquis à WebBizz, à titre de dédommagement pour le temps et les ressources engagés.</p>
+    <p>WebBizz se réserve le droit de résilier le contrat en cas de manquement grave du Client à ses obligations, après mise en demeure restée sans effet sous 15 jours.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>12. Responsabilité</h2>
+    <p>WebBizz s'engage à livrer un travail de qualité professionnelle, conforme au devis validé. La responsabilité de WebBizz est limitée au montant total payé par le Client pour la prestation concernée.</p>
+    <p>WebBizz ne saurait être tenu responsable des contenus fournis par le Client, ni des conséquences découlant d'une utilisation incorrecte ou illégale du site livré.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>13. Droit applicable et litiges</h2>
+    <p>Les présentes CGV sont soumises au droit français. En cas de litige, les parties s'efforceront de trouver une solution amiable avant tout recours judiciaire.</p>
+    <p>À défaut d'accord amiable, tout litige relatif à l'interprétation ou l'exécution des présentes sera soumis à la compétence exclusive des tribunaux français.</p>
+    <p>Pour les Clients consommateurs, il est possible de recourir au service de médiation de la consommation compétent.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>14. Contact</h2>
+    <div class="info-box">
+      <p><strong>WebBizz</strong></p>
+      <p>Email : <a href="mailto:webbizz.agence@gmail.com">webbizz.agence@gmail.com</a></p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="page-footer">
+  <div class="legal-nav">
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    <a href="cgv.html">CGV</a>
+  </div>
+  <p>© 2025 WebBizz · Tous droits réservés · <a href="index.html">Retour au site</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebBizz — Charte Graphique Officielle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --violet:#6C3CFF; --rose:#FF4D8D; --orange:#FF8A3D;
+      --dark:#0B0D17; --dark2:#10121E; --white:#FFFFFF; --gray:#8B8FA8;
+      --grad:linear-gradient(135deg,#6C3CFF,#FF4D8D,#FF8A3D);
+      --grad-h:linear-gradient(90deg,#6C3CFF,#FF4D8D,#FF8A3D);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff;line-height:1.6;}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px;}
+
+    /* Header */
+    header{padding:80px 0 60px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);}
+    header h1{font-family:'Poppins',sans-serif;font-size:56px;font-weight:900;
+      background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    header p{font-size:16px;color:var(--gray);margin-top:12px;}
+
+    /* Sections */
+    .section{padding:72px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+    .section-title{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;
+      letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:12px;}
+    .section-h2{font-family:'Poppins',sans-serif;font-size:32px;font-weight:800;margin-bottom:40px;}
+
+    /* Couleurs */
+    .colors-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+    .color-swatch{border-radius:18px;overflow:hidden;}
+    .swatch-block{height:140px;}
+    .swatch-info{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-top:none;padding:16px;border-radius:0 0 18px 18px;}
+    .swatch-name{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;}
+    .swatch-hex{font-family:'Inter',sans-serif;font-size:12px;color:var(--gray);font-weight:500;}
+    .swatch-role{font-size:11px;color:rgba(255,255,255,.35);margin-top:4px;}
+
+    /* Gradient */
+    .grad-showcase{border-radius:18px;height:100px;margin-bottom:12px;position:relative;overflow:hidden;}
+    .grad-showcase::after{content:'';position:absolute;inset:0;
+      background:linear-gradient(transparent,rgba(0,0,0,.3));}
+    .grad-label{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--gray);}
+
+    .grads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;}
+
+    /* Typographies */
+    .typo-section{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+    .typo-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+      border-radius:18px;padding:36px;}
+    .typo-card .font-name{font-size:12px;letter-spacing:2px;text-transform:uppercase;
+      color:var(--violet);margin-bottom:20px;}
+    .typo-weights{display:flex;flex-direction:column;gap:14px;}
+    .typo-weight{display:flex;align-items:baseline;gap:16px;}
+    .weight-label{font-size:11px;color:var(--gray);width:60px;flex-shrink:0;}
+
+    /* Boutons */
+    .btns-grid{display:grid;grid-template-columns:repeat(3,auto);gap:20px;align-items:center;
+      justify-content:start;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;border-radius:50px;
+      font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;
+      text-decoration:none;border:none;cursor:pointer;}
+    .btn-primary{background:var(--grad);color:#fff;box-shadow:0 6px 24px rgba(108,60,255,.35);}
+    .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18);}
+    .btn-sm{padding:10px 22px;font-size:13px;}
+    .btn-lg{padding:18px 44px;font-size:17px;}
+
+    /* Bouton label */
+    .demo-label{font-size:11px;color:var(--gray);margin-top:10px;text-align:center;}
+
+    /* Cards */
+    .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .card-demo{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+      border-radius:20px;padding:30px;transition:all .3s;}
+    .card-demo.hover-demo{border-color:rgba(108,60,255,.35);background:rgba(108,60,255,.06);
+      box-shadow:0 20px 60px rgba(108,60,255,.15);}
+    .card-demo.glow-demo{box-shadow:0 0 30px rgba(108,60,255,.3);border-color:rgba(108,60,255,.4);}
+    .card-ico{width:48px;height:48px;border-radius:14px;background:rgba(108,60,255,.15);
+      display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+    .card-demo h3{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;}
+    .card-demo p{font-size:13px;color:var(--gray);line-height:1.6;}
+
+    /* Badges & Tags */
+    .badges-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
+    .badge{display:inline-flex;align-items:center;gap:7px;padding:6px 18px;
+      border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;}
+    .badge.v{background:rgba(108,60,255,.15);border:1px solid rgba(108,60,255,.35);color:#B89EFF;}
+    .badge.r{background:rgba(255,77,141,.15);border:1px solid rgba(255,77,141,.35);color:#FF8DC4;}
+    .badge.o{background:rgba(255,138,61,.15);border:1px solid rgba(255,138,61,.35);color:#FFBA7A;}
+    .badge.g{background:var(--grad);color:#fff;}
+    .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+    /* Effets */
+    .effects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+    .effect-box{border-radius:18px;padding:36px;display:flex;align-items:center;
+      justify-content:center;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;
+      text-align:center;}
+    .ef-glow-v{background:rgba(108,60,255,.1);border:1px solid rgba(108,60,255,.3);
+      box-shadow:0 0 40px rgba(108,60,255,.25);}
+    .ef-glow-r{background:rgba(255,77,141,.1);border:1px solid rgba(255,77,141,.3);
+      box-shadow:0 0 40px rgba(255,77,141,.2);}
+    .ef-glow-o{background:rgba(255,138,61,.1);border:1px solid rgba(255,138,61,.3);
+      box-shadow:0 0 40px rgba(255,138,61,.2);}
+    .ef-glass{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(10px);}
+
+    /* Iconographie neon */
+    .icons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:20px;}
+    .icon-item{
+      height:110px;border-radius:20px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.06);
+      position:relative;overflow:hidden;cursor:default;
+      transition:border-color .3s,box-shadow .3s;
+    }
+    .icon-item::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at center,var(--nc) 0%,transparent 72%);
+      opacity:.07;transition:opacity .4s;
+    }
+    .icon-item:hover{box-shadow:0 0 24px color-mix(in srgb,var(--nc) 20%,transparent);}
+    .icon-item:hover::before{opacity:.18;}
+    .icon-item svg{
+      width:30px;height:30px;stroke:var(--nc);
+      stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;
+      filter:drop-shadow(0 0 5px var(--nc)) drop-shadow(0 0 12px var(--nc));
+      transition:filter .3s;
+    }
+    .icon-item:hover svg{
+      filter:drop-shadow(0 0 8px var(--nc)) drop-shadow(0 0 22px var(--nc)) drop-shadow(0 0 40px var(--nc));
+    }
+    .icon-item span{
+      font-family:'Poppins',sans-serif;font-size:8.5px;font-weight:600;
+      color:var(--nc);letter-spacing:.1em;text-transform:uppercase;opacity:.65;
+    }
+    .icon-item.v{--nc:#6C3CFF;border-color:rgba(108,60,255,.15);}
+    .icon-item.r{--nc:#FF4D8D;border-color:rgba(255,77,141,.15);}
+    .icon-item.o{--nc:#FF8A3D;border-color:rgba(255,138,61,.15);}
+    .icon-item.c{--nc:#00E5FF;border-color:rgba(0,229,255,.15);}
+
+    @keyframes neon-pulse{
+      0%,100%{filter:drop-shadow(0 0 5px var(--nc)) drop-shadow(0 0 12px var(--nc));}
+      50%{filter:drop-shadow(0 0 10px var(--nc)) drop-shadow(0 0 28px var(--nc)) drop-shadow(0 0 50px var(--nc));}
+    }
+    @keyframes neon-blink{
+      0%,88%,92%,96%,100%{opacity:1;}
+      90%,94%{opacity:.06;}
+    }
+    .icon-item.pulse svg{animation:neon-pulse 2.6s ease-in-out infinite;}
+    .icon-item.blink svg{animation:neon-blink 5s ease-in-out infinite;}
+
+    /* Slogans */
+    .slogans-list{display:flex;flex-direction:column;gap:16px;}
+    .slogan-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+      border-radius:14px;padding:20px 28px;
+      font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;
+      display:flex;align-items:center;gap:16px;}
+    .slogan-item::before{content:'→';
+      background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;font-size:20px;font-weight:800;}
+
+    /* Services listing */
+    .services-yes{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .svc-yes,.svc-no{border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px;}
+    .svc-yes{background:rgba(108,60,255,.07);border:1px solid rgba(108,60,255,.25);}
+    .svc-no{background:rgba(255,77,141,.05);border:1px solid rgba(255,77,141,.2);}
+    .svc-heading{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;}
+    .svc-item{font-size:14px;display:flex;align-items:center;gap:10px;}
+
+    @media(max-width:768px){
+      .colors-grid{grid-template-columns:repeat(2,1fr);}
+      .grads-grid{grid-template-columns:1fr;}
+      .typo-section{grid-template-columns:1fr;}
+      .cards-grid{grid-template-columns:1fr;}
+      .effects-grid{grid-template-columns:repeat(2,1fr);}
+      .services-yes{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <p class="section-title" style="justify-content:center;display:flex">Document officiel</p>
+    <h1>WEBBIZZ</h1>
+    <p>Charte Graphique Officielle · Version 1.0 · 2025</p>
+  </div>
+</header>
+
+<!-- ── PALETTE ─────────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">01 — Identité chromatique</p>
+    <h2 class="section-h2">Palette de couleurs officielle</h2>
+
+    <div class="colors-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#6C3CFF"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Violet Électrique</div>
+          <div class="swatch-hex">#6C3CFF</div>
+          <div class="swatch-role">Couleur principale · CTA</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FF4D8D"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Rose Néon</div>
+          <div class="swatch-hex">#FF4D8D</div>
+          <div class="swatch-role">Accent · Énergie</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FF8A3D"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Orange Premium</div>
+          <div class="swatch-hex">#FF8A3D</div>
+          <div class="swatch-role">Accent chaud · Chaleur</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#0B0D17"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Bleu Nuit Profond</div>
+          <div class="swatch-hex">#0B0D17</div>
+          <div class="swatch-role">Fond principal</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FFFFFF;border:1px solid rgba(0,0,0,.1)"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blanc Lumineux</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-role">Texte principal · Clarté</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;margin:48px 0 24px">Dégradés officiels</h3>
+    <div class="grads-grid">
+      <div>
+        <div class="grad-showcase" style="background:linear-gradient(135deg,#6C3CFF,#FF4D8D,#FF8A3D)"></div>
+        <div class="grad-label">Primaire diagonal · 135°</div>
+      </div>
+      <div>
+        <div class="grad-showcase" style="background:linear-gradient(90deg,#6C3CFF,#FF4D8D,#FF8A3D)"></div>
+        <div class="grad-label">Texte horizontal · 90°</div>
+      </div>
+      <div>
+        <div class="grad-showcase" style="background:linear-gradient(135deg,#FF8A3D,#FF4D8D,#6C3CFF)"></div>
+        <div class="grad-label">Inversé (hover) · 135°</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TYPOGRAPHIE ─────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">02 — Typographie</p>
+    <h2 class="section-h2">Hiérarchie typographique</h2>
+    <div class="typo-section">
+
+      <div class="typo-card">
+        <div class="font-name">Poppins — Titres & UI</div>
+        <div class="typo-weights">
+          <div class="typo-weight">
+            <span class="weight-label">900</span>
+            <span style="font-family:'Poppins';font-weight:900;font-size:36px;line-height:1">WebBizz</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">800</span>
+            <span style="font-family:'Poppins';font-weight:800;font-size:28px">WebBizz</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">700</span>
+            <span style="font-family:'Poppins';font-weight:700;font-size:22px">WebBizz</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">600</span>
+            <span style="font-family:'Poppins';font-weight:600;font-size:18px">WebBizz</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">500</span>
+            <span style="font-family:'Poppins';font-weight:500;font-size:15px;color:rgba(255,255,255,.7)">Boutons et labels</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">400</span>
+            <span style="font-family:'Poppins';font-weight:400;font-size:14px;color:rgba(255,255,255,.5)">Navigation normale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="typo-card">
+        <div class="font-name">Inter — Corps & contenu</div>
+        <div class="typo-weights">
+          <div class="typo-weight">
+            <span class="weight-label">700</span>
+            <span style="font-family:'Inter';font-weight:700;font-size:18px">Sous-titre fort</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">600</span>
+            <span style="font-family:'Inter';font-weight:600;font-size:16px">Label important</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">500</span>
+            <span style="font-family:'Inter';font-weight:500;font-size:15px;color:rgba(255,255,255,.8)">Texte accentué</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">400</span>
+            <span style="font-family:'Inter';font-weight:400;font-size:15px;color:rgba(255,255,255,.65)">Corps de texte standard</span>
+          </div>
+          <div class="typo-weight">
+            <span class="weight-label">300</span>
+            <span style="font-family:'Inter';font-weight:300;font-size:14px;color:rgba(255,255,255,.4)">Texte léger / secondaire</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:36px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+      border-radius:18px;padding:36px;">
+      <p style="font-family:'Poppins';font-size:11px;letter-spacing:2px;text-transform:uppercase;
+        color:var(--violet);margin-bottom:20px">Exemple de hiérarchie complète</p>
+      <h1 style="font-family:'Poppins';font-weight:800;font-size:48px;line-height:1.1;
+        background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        background-clip:text;margin-bottom:12px">Titre H1 · 48px / 800</h1>
+      <h2 style="font-family:'Poppins';font-weight:700;font-size:32px;margin-bottom:12px">Titre H2 · 32px / 700</h2>
+      <h3 style="font-family:'Poppins';font-weight:600;font-size:22px;margin-bottom:16px;color:rgba(255,255,255,.85)">Titre H3 · 22px / 600</h3>
+      <p style="font-size:16px;color:rgba(255,255,255,.6);line-height:1.8;max-width:600px">
+        Corps de texte standard · 16px / 400 Inter. Ligne de texte principale utilisée pour les descriptions, les paragraphes et tout contenu éditorial du site WebBizz.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── BOUTONS ─────────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">03 — Composants UI</p>
+    <h2 class="section-h2">Boutons & interactions</h2>
+
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;margin-bottom:40px">
+      <div>
+        <button class="btn btn-primary">Bouton Primaire</button>
+        <div class="demo-label">Gradient · CTA principal</div>
+      </div>
+      <div>
+        <button class="btn btn-ghost">Bouton Secondaire</button>
+        <div class="demo-label">Ghost · Action secondaire</div>
+      </div>
+      <div>
+        <button class="btn btn-primary btn-sm">Petit</button>
+        <div class="demo-label">Small · 13px</div>
+      </div>
+      <div>
+        <button class="btn btn-primary btn-lg">Grand bouton</button>
+        <div class="demo-label">Large · 17px</div>
+      </div>
+      <div>
+        <button class="btn btn-primary">🚀 Avec icône</button>
+        <div class="demo-label">Icon + texte</div>
+      </div>
+      <div>
+        <button class="btn btn-ghost">Voir plus →</button>
+        <div class="demo-label">Ghost + flèche</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Poppins';font-size:20px;font-weight:700;margin-bottom:20px">Badges & étiquettes</h3>
+    <div class="badges-row">
+      <span class="badge v">Nos services</span>
+      <span class="badge r">Avis clients</span>
+      <span class="badge o">Tarifs</span>
+      <span class="badge g">⭐ Le plus populaire</span>
+      <span class="badge v">Agence web premium</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARDS ───────────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">04 — Cartes UI</p>
+    <h2 class="section-h2">Styles de cartes</h2>
+    <div class="cards-grid">
+      <div>
+        <div class="card-demo">
+          <div class="card-ico">🎨</div>
+          <h3>Carte par défaut</h3>
+          <p>État normal — fond légèrement opaque avec bordure subtile.</p>
+        </div>
+        <p style="font-size:11px;color:var(--gray);margin-top:10px;text-align:center">Default state</p>
+      </div>
+      <div>
+        <div class="card-demo hover-demo">
+          <div class="card-ico" style="background:rgba(108,60,255,.25)">🚀</div>
+          <h3>Carte hover</h3>
+          <p>État survol — bordure violet, background teinté, ombre projetée.</p>
+        </div>
+        <p style="font-size:11px;color:var(--gray);margin-top:10px;text-align:center">Hover state</p>
+      </div>
+      <div>
+        <div class="card-demo glow-demo">
+          <div class="card-ico">⭐</div>
+          <h3>Carte glow</h3>
+          <p>Variante avec halo lumineux — pour mettre en avant un contenu clé.</p>
+        </div>
+        <p style="font-size:11px;color:var(--gray);margin-top:10px;text-align:center">Glow state</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── EFFETS ──────────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">05 — Effets visuels</p>
+    <h2 class="section-h2">Glow · Glassmorphism · Effets UI</h2>
+    <div class="effects-grid">
+      <div class="effect-box ef-glow-v">Glow Violet<br><span style="font-size:11px;opacity:.5">rgba(108,60,255,.25)</span></div>
+      <div class="effect-box ef-glow-r">Glow Rose<br><span style="font-size:11px;opacity:.5">rgba(255,77,141,.2)</span></div>
+      <div class="effect-box ef-glow-o">Glow Orange<br><span style="font-size:11px;opacity:.5">rgba(255,138,61,.2)</span></div>
+      <div class="effect-box ef-glass">Glassmorphism<br><span style="font-size:11px;opacity:.5">backdrop-filter blur</span></div>
+    </div>
+
+    <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+        border-radius:16px;padding:28px">
+        <p style="font-family:'Poppins';font-size:13px;font-weight:600;color:var(--gray);margin-bottom:14px">Bordure avec dégradé (top)</p>
+        <div style="height:60px;border-radius:12px;background:rgba(255,255,255,.03);
+          border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;
+            background:linear-gradient(90deg,#6C3CFF,#FF4D8D,#FF8A3D)"></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+        border-radius:16px;padding:28px">
+        <p style="font-family:'Poppins';font-size:13px;font-weight:600;color:var(--gray);margin-bottom:14px">Texte dégradé</p>
+        <p style="font-family:'Poppins';font-weight:800;font-size:28px;
+          background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+          Gradient Text
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ICONOGRAPHIE ────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">06 — Iconographie</p>
+    <h2 class="section-h2">Icônes recommandées</h2>
+    <div class="icons-grid">
+
+      <!-- Développement -->
+      <div class="icon-item v pulse">
+        <svg viewBox="0 0 24 24"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg>
+        <span>Dev web</span>
+      </div>
+
+      <!-- Responsive -->
+      <div class="icon-item r">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <span>Responsive</span>
+      </div>
+
+      <!-- Performance -->
+      <div class="icon-item o pulse">
+        <svg viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/></svg>
+        <span>Performance</span>
+      </div>
+
+      <!-- SEO -->
+      <div class="icon-item c">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>SEO</span>
+      </div>
+
+      <!-- Sécurité -->
+      <div class="icon-item v blink">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Sécurité</span>
+      </div>
+
+      <!-- Design -->
+      <div class="icon-item r pulse">
+        <svg viewBox="0 0 24 24"><polygon points="12,2 2,7 12,12 22,7 12,2"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
+        <span>Design</span>
+      </div>
+
+      <!-- Excellence -->
+      <div class="icon-item o blink">
+        <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+        <span>Excellence</span>
+      </div>
+
+      <!-- Refonte -->
+      <div class="icon-item c pulse">
+        <svg viewBox="0 0 24 24"><polyline points="23,4 23,10 17,10"/><polyline points="1,20 1,14 7,14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        <span>Refonte</span>
+      </div>
+
+      <!-- Accompagnement -->
+      <div class="icon-item v">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Accompagnement</span>
+      </div>
+
+      <!-- Maintenance -->
+      <div class="icon-item r">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Maintenance</span>
+      </div>
+
+      <!-- Croissance -->
+      <div class="icon-item o pulse">
+        <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7,7 17,7 17,17"/></svg>
+        <span>Croissance</span>
+      </div>
+
+      <!-- Contact -->
+      <div class="icon-item c blink">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Contact</span>
+      </div>
+
+    </div>
+    <p style="font-size:13px;color:var(--gray);margin-top:24px;line-height:1.7;">
+      Style SVG outline — trait 1.5px, coins arrondis. Effets : <strong style="color:#6C3CFF">pulse</strong> (respiration lente), <strong style="color:#FF4D8D">blink</strong> (clignotement néon). Couleurs : violet <span style="color:#6C3CFF">■</span> rose <span style="color:#FF4D8D">■</span> orange <span style="color:#FF8A3D">■</span> cyan <span style="color:#00E5FF">■</span>
+    </p>
+  </div>
+</div>
+
+<!-- ── SLOGANS ─────────────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">07 — Copywriting</p>
+    <h2 class="section-h2">Slogans & accroches officiels</h2>
+    <div class="slogans-list">
+      <div class="slogan-item">Votre site. Votre image. Votre réussite.</div>
+      <div class="slogan-item">Des sites web qui propulsent votre activité.</div>
+      <div class="slogan-item">L'élégance digitale au service de votre entreprise.</div>
+      <div class="slogan-item">Nous créons des sites qui inspirent confiance.</div>
+      <div class="slogan-item">Une présence en ligne à la hauteur de votre activité.</div>
+      <div class="slogan-item">Votre vitrine digitale. Pensée pour convertir.</div>
+      <div class="slogan-item">La première impression, c'est votre site web.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES SCOPE ──────────────────────────────────── -->
+<div class="section">
+  <div class="container">
+    <p class="section-title">08 — Périmètre de services</p>
+    <h2 class="section-h2">Ce que WebBizz fait (et ne fait pas)</h2>
+    <div class="services-yes">
+      <div class="svc-yes">
+        <div class="svc-heading" style="color:#A880FF">✅ WebBizz propose</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Création de sites vitrine modernes</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Refonte de sites internet</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Design responsive (mobile/tablette)</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Optimisation SEO de base</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Accompagnement digital</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Maintenance & support</div>
+        <div class="svc-item"><span style="color:#6C3CFF">✓</span> Sites professionnels sur mesure</div>
+      </div>
+      <div class="svc-no">
+        <div class="svc-heading" style="color:#FF8DC4">❌ WebBizz ne propose PAS</div>
+        <div class="svc-item"><span style="color:#FF4D8D">✗</span> Boutiques Shopify / e-commerce</div>
+        <div class="svc-item"><span style="color:#FF4D8D">✗</span> Dropshipping & produits physiques</div>
+        <div class="svc-item"><span style="color:#FF4D8D">✗</span> Applications mobiles natives</div>
+        <div class="svc-item"><span style="color:#FF4D8D">✗</span> Services low-cost / templates basiques</div>
+        <div class="svc-item"><span style="color:#FF4D8D">✗</span> Designs génériques sans personnalisation</div>
+        <div class="svc-item"><span style="color:#FF4D8D">✗</span> Développement logiciel complexe</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="padding:48px 0;text-align:center;border-top:1px solid rgba(255,255,255,.05)">
+  <p style="font-family:'Poppins';font-weight:800;font-size:28px;
+    background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    margin-bottom:8px">WEBBIZZ</p>
+  <p style="font-size:13px;color:var(--gray)">Charte Graphique Officielle · Usage interne &amp; créatif · 2025</p>
+</div>
+
+</body>
+</html>

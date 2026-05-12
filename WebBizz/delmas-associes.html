@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delmas & Associés — Cabinet d'Avocats | Rouen</title>
+  <meta name="description" content="Cabinet d'avocats Delmas & Associés à Rouen. Spécialiste en droit des affaires, droit fiscal, fusions-acquisitions et contentieux. Excellence juridique depuis 2004." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --noir:      #080808;
+      --nuit:      #0A0D1A;
+      --blanc:     #FFFFFF;
+      --casse:     #F4F4F0;
+      --or:        #C9A84C;
+      --or-light:  #D9BC74;
+      --acier:     #8A8A96;
+      --transition: 0.35s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background: var(--nuit);
+      color: var(--blanc);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── SCROLLBAR ────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--noir); }
+    ::-webkit-scrollbar-thumb { background: var(--or); border-radius: 4px; }
+
+    /* ─── REVEAL ANIMATION ─────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ─── NAV ──────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      height: 80px;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(8, 8, 8, 0.97);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blanc);
+    }
+    .nav-logo span { color: var(--or); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acier);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--or);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--blanc); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 11px 26px;
+      border: 1px solid var(--or);
+      color: var(--or);
+      background: transparent;
+      transition: background var(--transition), color var(--transition);
+      cursor: pointer;
+    }
+    .nav-cta:hover {
+      background: var(--or);
+      color: var(--noir);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--blanc);
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: rgba(8, 8, 8, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 32px 40px 48px;
+      z-index: 999;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+    .mobile-menu.open { display: flex; flex-direction: column; gap: 28px; }
+    .mobile-menu a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acier);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--blanc); }
+
+    /* ─── HERO ─────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--noir);
+    }
+
+    /* Grain texture */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Gradient overlay */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 60% 40%, rgba(10,13,26,0.6) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Diagonal light */
+    .hero-light {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 55%);
+      transform: skewX(-15deg);
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 140px 60px 100px;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--or);
+    }
+    .hero-eyebrow-text {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--or);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
+      line-height: 1.1;
+      color: var(--blanc);
+      max-width: 800px;
+      margin-bottom: 14px;
+    }
+
+    /* Or animée sous le titre */
+    .hero-title-underline {
+      display: block;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--or), transparent);
+      margin-top: 18px;
+      margin-bottom: 36px;
+      animation: expandLine 1.4s 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    @keyframes expandLine {
+      to { width: 420px; }
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--acier);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 52px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 38px;
+      background: var(--or);
+      color: var(--noir);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover {
+      background: var(--or-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.35);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 15px 38px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--blanc);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover {
+      border-color: var(--or);
+      color: var(--or);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.45;
+    }
+    .hero-scroll span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .scroll-mouse {
+      width: 22px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 11px;
+      display: flex;
+      justify-content: center;
+      padding-top: 7px;
+    }
+    .scroll-mouse::before {
+      content: '';
+      width: 2px;
+      height: 7px;
+      background: var(--or);
+      border-radius: 2px;
+      animation: scrollDot 2s ease infinite;
+    }
+    @keyframes scrollDot {
+      0%, 100% { opacity: 1; transform: translateY(0); }
+      50% { opacity: 0.3; transform: translateY(6px); }
+    }
+
+    /* ─── SECTION HELPERS ──────────────────────────────────────────── */
+    section { width: 100%; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .section-label-line {
+      width: 32px;
+      height: 1px;
+      background: var(--or);
+    }
+    .section-label-text {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--or);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      color: var(--blanc);
+    }
+
+    .or-rule {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--or), transparent);
+      margin: 24px 0;
+    }
+
+    /* ─── CABINET ──────────────────────────────────────────────────── */
+    #cabinet {
+      padding: 130px 0;
+      background: var(--casse);
+    }
+
+    #cabinet .section-label-text,
+    #cabinet .section-label-line { /* dark section */}
+
+    #cabinet .section-label-text { color: #7A6935; }
+    #cabinet .section-label-line { background: #7A6935; }
+
+    #cabinet .or-rule { background: linear-gradient(90deg, #7A6935, transparent); }
+
+    .cabinet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .stats-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .stat-item {
+      padding: 44px 36px;
+      background: var(--noir);
+      color: var(--blanc);
+      position: relative;
+    }
+    .stat-item:nth-child(1) { border-right: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .stat-item:nth-child(2) { border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .stat-item:nth-child(3) { border-right: 1px solid rgba(201,168,76,0.15); }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 3.4rem;
+      color: var(--or);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--acier);
+      line-height: 1.5;
+    }
+
+    .cabinet-text .section-title { color: var(--noir); }
+    .cabinet-text .section-label-text { color: #7A6935; }
+
+    .cabinet-text p {
+      color: #4A4A52;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .cabinet-text .signature {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .signature-line {
+      width: 1px;
+      height: 52px;
+      background: #7A6935;
+    }
+    .signature-text strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--noir);
+    }
+    .signature-text span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7A6935;
+    }
+
+    /* ─── EXPERTISES ───────────────────────────────────────────────── */
+    #expertises {
+      padding: 130px 0;
+      background: var(--nuit);
+    }
+
+    .expertises-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .expertises-header .section-label { justify-content: center; }
+    .expertises-header .or-rule { margin: 24px auto; }
+    .expertises-header p {
+      color: var(--acier);
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    .expertises-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .expertise-card {
+      padding: 48px 40px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.04);
+      cursor: default;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .expertise-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--or), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .expertise-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.04);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .expertise-card:hover::before { transform: scaleX(1); }
+
+    .expertise-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 28px;
+      color: var(--or);
+    }
+
+    .expertise-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--blanc);
+      margin-bottom: 14px;
+    }
+    .expertise-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--acier);
+      line-height: 1.8;
+    }
+    .expertise-arrow {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--or);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .expertise-card:hover .expertise-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── ÉQUIPE ───────────────────────────────────────────────────── */
+    #equipe {
+      padding: 130px 0;
+      background: var(--noir);
+    }
+
+    .equipe-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .equipe-header .section-label { justify-content: center; }
+    .equipe-header .or-rule { margin: 24px auto; }
+
+    .equipe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .avocat-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .avocat-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-4px);
+    }
+
+    .avocat-photo {
+      height: 300px;
+      background: linear-gradient(145deg, #12172E 0%, #0D1020 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .avocat-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 30%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    }
+    .avocat-initials {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(201,168,76,0.4);
+      letter-spacing: 0.05em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avocat-info {
+      padding: 32px 36px;
+    }
+    .avocat-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--blanc);
+      margin-bottom: 6px;
+    }
+    .avocat-titre {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 16px;
+    }
+    .avocat-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--acier);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .avocat-barreau {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.5);
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ─── TÉMOIGNAGES ──────────────────────────────────────────────── */
+    #temoignages {
+      padding: 130px 0;
+      background: var(--casse);
+    }
+
+    .temoignages-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .temoignages-header .section-label { justify-content: center; }
+    .temoignages-header .section-label-text { color: #7A6935; }
+    .temoignages-header .section-label-line { background: #7A6935; }
+    .temoignages-header .section-title { color: var(--noir); }
+    .temoignages-header .or-rule { margin: 24px auto; background: linear-gradient(90deg, #7A6935, transparent); }
+
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .temoignage-card {
+      background: var(--blanc);
+      padding: 44px 40px;
+      border-top: 3px solid var(--or);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .temoignage-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+    .star {
+      width: 15px;
+      height: 15px;
+      color: var(--or);
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: 32px;
+      right: 36px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 1;
+      color: rgba(201,168,76,0.12);
+      font-weight: 700;
+    }
+
+    .temoignage-text {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #3A3A44;
+      line-height: 1.9;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .temoignage-author strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--noir);
+      margin-bottom: 3px;
+    }
+    .temoignage-author span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7A6935;
+    }
+
+    /* ─── RENDEZ-VOUS ──────────────────────────────────────────────── */
+    #rdv {
+      padding: 130px 0;
+      background: var(--nuit);
+      position: relative;
+      overflow: hidden;
+    }
+    #rdv::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--or), transparent);
+    }
+
+    .rdv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .rdv-form-side .section-title { margin-bottom: 8px; }
+    .rdv-form-side > p {
+      color: var(--acier);
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 44px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--acier);
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--blanc);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(138,138,150,0.5); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--or);
+      background: rgba(255,255,255,0.07);
+    }
+    .form-group select option { background: var(--noir); color: var(--blanc); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit {
+      margin-top: 8px;
+    }
+    .form-submit button {
+      width: 100%;
+      padding: 18px;
+      background: var(--or);
+      color: var(--noir);
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .form-submit button:hover {
+      background: var(--or-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+    }
+
+    /* Infos cabinet */
+    .rdv-info-side {
+      padding-top: 12px;
+    }
+    .rdv-info-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 40px;
+    }
+
+    .info-block {
+      display: flex;
+      gap: 22px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .info-block:last-of-type {
+      border-bottom: none;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--or);
+    }
+
+    .info-content strong {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acier);
+      margin-bottom: 8px;
+    }
+    .info-content p, .info-content a {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--blanc);
+      line-height: 1.7;
+      transition: color var(--transition);
+    }
+    .info-content a:hover { color: var(--or); }
+
+    .horaires-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .horaire-item {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--acier);
+    }
+    .horaire-item span {
+      color: var(--blanc);
+      font-weight: 400;
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────────────────── */
+    footer {
+      background: var(--noir);
+      padding: 80px 0 0;
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--acier);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 280px;
+    }
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(201,168,76,0.04);
+    }
+    .footer-badge svg { width: 16px; height: 16px; color: var(--or); }
+    .footer-badge span {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+    }
+
+    .footer-col h4 {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--acier);
+      margin-bottom: 24px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+    .footer-col ul a:hover { color: var(--or); }
+
+    .footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-bottom p {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-bottom a {
+      color: rgba(255,255,255,0.3);
+      transition: color var(--transition);
+    }
+    .footer-bottom a:hover { color: var(--or); }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 36px; }
+      .container { padding: 0 36px; }
+      .hero-inner { padding: 140px 36px 100px; }
+      .cabinet-grid { gap: 48px; }
+      .expertises-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 0 24px; }
+      .hero-inner { padding: 120px 24px 80px; }
+
+      .cabinet-grid { grid-template-columns: 1fr; gap: 48px; }
+      .stats-block { grid-template-columns: 1fr 1fr; }
+
+      .expertises-grid { grid-template-columns: 1fr; }
+      .expertise-card { padding: 36px 28px; }
+
+      .equipe-grid { grid-template-columns: 1fr; }
+
+      .temoignages-grid { grid-template-columns: 1fr; }
+
+      .rdv-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+      .hero-title-underline { animation: expandLineMobile 1.4s 0.8s cubic-bezier(0.4,0,0.2,1) forwards; }
+      @keyframes expandLineMobile { to { width: 240px; } }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-outline { text-align: center; }
+      .stat-number { font-size: 2.6rem; }
+      .stat-item { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- NAV                                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Delmas <span>&</span> Associés</a>
+
+  <ul class="nav-links">
+    <li><a href="#cabinet">Cabinet</a></li>
+    <li><a href="#expertises">Expertises</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#rdv">Contact</a></li>
+  </ul>
+
+  <a href="#rdv" class="nav-cta">Prendre RDV</a>
+
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#cabinet" class="mobile-link">Cabinet</a>
+  <a href="#expertises" class="mobile-link">Expertises</a>
+  <a href="#equipe" class="mobile-link">Équipe</a>
+  <a href="#rdv" class="mobile-link">Contact</a>
+  <a href="#rdv" class="nav-cta" style="text-align:center;padding:14px 28px;">Prendre RDV</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- HERO                                                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-light"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">Cabinet d'Avocats · Rouen · Depuis 2004</span>
+    </div>
+
+    <h1 class="hero-title serif reveal reveal-delay-1">
+      L'excellence juridique<br />au service de<br />votre réussite.
+    </h1>
+    <span class="hero-title-underline"></span>
+
+    <p class="hero-subtitle reveal reveal-delay-2">
+      Conseils stratégiques, défense tenace et accompagnement sur mesure
+      pour les entreprises exigeantes qui refusent de laisser le droit au hasard.
+    </p>
+
+    <div class="hero-btns reveal reveal-delay-3">
+      <a href="#rdv" class="btn-primary">Prendre rendez-vous</a>
+      <a href="#expertises" class="btn-outline">Nos expertises</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-mouse"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CABINET                                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="cabinet">
+  <div class="container">
+    <div class="cabinet-grid">
+
+      <!-- Stats -->
+      <div class="stats-block reveal">
+        <div class="stat-item">
+          <div class="stat-number">20<sup style="font-size:1.8rem">+</sup></div>
+          <div class="stat-label">Années<br />d'expérience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">200<sup style="font-size:1.8rem">+</sup></div>
+          <div class="stat-label">Dossiers<br />résolus</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98<sup style="font-size:1.8rem">%</sup></div>
+          <div class="stat-label">Taux de<br />satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Associés<br />experts</div>
+        </div>
+      </div>
+
+      <!-- Texte -->
+      <div class="cabinet-text reveal reveal-delay-2">
+        <div class="section-label">
+          <span class="section-label-line"></span>
+          <span class="section-label-text">Notre Cabinet</span>
+        </div>
+        <h2 class="section-title">Un cabinet fondé sur<br />l'intégrité et la rigueur.</h2>
+        <div class="or-rule"></div>
+        <p>
+          Fondé en 2004 à Rouen par Maître Élisabeth Delmas, notre cabinet s'est imposé
+          comme une référence régionale en droit des affaires. Nous accompagnons dirigeants,
+          entrepreneurs et grands groupes dans leurs enjeux juridiques les plus complexes.
+        </p>
+        <p>
+          Notre approche allie une expertise technique irréprochable à une vision
+          stratégique du droit, avec un engagement constant : défendre vos intérêts
+          avec la même conviction que si c'était les nôtres.
+        </p>
+        <div class="signature">
+          <div class="signature-line"></div>
+          <div class="signature-text">
+            <strong>Maître Élisabeth Delmas</strong>
+            <span>Fondatrice & Associée principale</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- EXPERTISES                                                      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="expertises">
+  <div class="container">
+    <div class="expertises-header reveal">
+      <div class="section-label">
+        <span class="section-label-line"></span>
+        <span class="section-label-text">Domaines d'expertise</span>
+      </div>
+      <h2 class="section-title">Six piliers d'excellence.</h2>
+      <div class="or-rule"></div>
+      <p>Une couverture juridique globale, pensée pour les entreprises ambitieuses.</p>
+    </div>
+
+    <div class="expertises-grid">
+
+      <!-- Droit des affaires -->
+      <div class="expertise-card reveal reveal-delay-1">
+        <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="16" width="36" height="26" rx="2"/>
+          <path d="M16 16V12a8 8 0 0116 0v4"/>
+          <path d="M24 28v4m-6-2h12"/>
+        </svg>
+        <h3 class="expertise-title">Droit des affaires</h3>
+        <p class="expertise-desc">Conseil et accompagnement dans la vie juridique de votre entreprise : contrats commerciaux, gouvernance, relations inter-entreprises.</p>
+        <span class="expertise-arrow">En savoir plus →</span>
+      </div>
+
+      <!-- Droit fiscal -->
+      <div class="expertise-card reveal reveal-delay-2">
+        <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8h24l-4 14H16L12 8z"/>
+          <path d="M16 22l-6 18h28l-6-18"/>
+          <path d="M20 14h8M19 30h10"/>
+        </svg>
+        <h3 class="expertise-title">Droit fiscal</h3>
+        <p class="expertise-desc">Optimisation fiscale, structuration d'opérations, contrôle fiscal et contentieux : nous défendons vos droits face à l'administration.</p>
+        <span class="expertise-arrow">En savoir plus →</span>
+      </div>
+
+      <!-- Fusions-acquisitions -->
+      <div class="expertise-card reveal reveal-delay-3">
+        <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="24" r="8"/>
+          <circle cx="34" cy="24" r="8"/>
+          <path d="M22 24h4"/>
+          <path d="M14 10V6m0 36v-4M34 10V6m0 36v-4"/>
+        </svg>
+        <h3 class="expertise-title">Fusions-acquisitions</h3>
+        <p class="expertise-desc">Accompagnement complet des opérations de M&A : due diligence, structuration, négociation et sécurisation des transactions stratégiques.</p>
+        <span class="expertise-arrow">En savoir plus →</span>
+      </div>
+
+      <!-- Contentieux -->
+      <div class="expertise-card reveal reveal-delay-1">
+        <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6l3 9h9l-7.5 5.5 3 9L24 24l-7.5 5.5 3-9L12 15h9z"/>
+          <path d="M8 40h32"/>
+          <path d="M24 29v11"/>
+        </svg>
+        <h3 class="expertise-title">Contentieux</h3>
+        <p class="expertise-desc">Défense rigoureuse de vos droits devant toutes les juridictions : tribunaux de commerce, cours d'appel et arbitrage international.</p>
+        <span class="expertise-arrow">En savoir plus →</span>
+      </div>
+
+      <!-- Droit immobilier -->
+      <div class="expertise-card reveal reveal-delay-2">
+        <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 42V22l18-16 18 16v20H6z"/>
+          <path d="M18 42V30h12v12"/>
+          <path d="M24 6v4"/>
+        </svg>
+        <h3 class="expertise-title">Droit immobilier</h3>
+        <p class="expertise-desc">Transactions, baux commerciaux, promotion immobilière et VEFA : conseil et sécurisation de tous vos projets patrimoniaux.</p>
+        <span class="expertise-arrow">En savoir plus →</span>
+      </div>
+
+      <!-- Droit social -->
+      <div class="expertise-card reveal reveal-delay-3">
+        <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="14" r="6"/>
+          <circle cx="32" cy="14" r="6"/>
+          <path d="M6 40c0-8 5-14 12-14s12 6 12 14"/>
+          <path d="M36 26c4 2 6 7 6 14"/>
+        </svg>
+        <h3 class="expertise-title">Droit social</h3>
+        <p class="expertise-desc">Relations individuelles et collectives de travail, restructurations, droit disciplinaire et représentation en conseil de prud'hommes.</p>
+        <span class="expertise-arrow">En savoir plus →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ÉQUIPE                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="equipe">
+  <div class="container">
+    <div class="equipe-header reveal">
+      <div class="section-label">
+        <span class="section-label-line"></span>
+        <span class="section-label-text">Notre équipe</span>
+      </div>
+      <h2 class="section-title">Des avocats à la hauteur<br />de vos ambitions.</h2>
+      <div class="or-rule" style="margin:24px auto;"></div>
+    </div>
+
+    <div class="equipe-grid">
+
+      <!-- Avocat 1 -->
+      <div class="avocat-card reveal reveal-delay-1">
+        <div class="avocat-photo">
+          <span class="avocat-initials">ÉD</span>
+        </div>
+        <div class="avocat-info">
+          <h3 class="avocat-name">Me Élisabeth Delmas</h3>
+          <p class="avocat-titre">Associée fondatrice</p>
+          <p class="avocat-desc">
+            Diplômée de l'Université Paris I Panthéon-Sorbonne et titulaire d'un LLM
+            en droit européen des affaires, Maître Delmas dirige le cabinet depuis 2004.
+            Reconnue pour sa maîtrise des opérations de fusion-acquisition complexes.
+          </p>
+          <p class="avocat-barreau">Barreau de Rouen · CAPA 1999</p>
+        </div>
+      </div>
+
+      <!-- Avocat 2 -->
+      <div class="avocat-card reveal reveal-delay-2">
+        <div class="avocat-photo">
+          <span class="avocat-initials">LV</span>
+        </div>
+        <div class="avocat-info">
+          <h3 class="avocat-name">Me Laurent Vauclaire</h3>
+          <p class="avocat-titre">Associé — Droit fiscal</p>
+          <p class="avocat-desc">
+            Ancien inspecteur des finances publiques reconverti au barreau, Maître Vauclaire
+            bénéficie d'une double expertise précieuse en matière de contrôle fiscal et
+            d'optimisation des structures patrimoniales des groupes de sociétés.
+          </p>
+          <p class="avocat-barreau">Barreau de Rouen · CAPA 2007</p>
+        </div>
+      </div>
+
+      <!-- Avocat 3 -->
+      <div class="avocat-card reveal reveal-delay-3">
+        <div class="avocat-photo">
+          <span class="avocat-initials">CM</span>
+        </div>
+        <div class="avocat-info">
+          <h3 class="avocat-name">Me Camille Marchand</h3>
+          <p class="avocat-titre">Associée — Droit social</p>
+          <p class="avocat-desc">
+            Spécialiste des relations sociales en période de transformation, Maître Marchand
+            accompagne les entreprises dans leurs restructurations et leurs négociations
+            collectives avec méthode et efficacité depuis plus de douze ans.
+          </p>
+          <p class="avocat-barreau">Barreau de Rouen · CAPA 2011</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TÉMOIGNAGES                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="temoignages">
+  <div class="container">
+    <div class="temoignages-header reveal">
+      <div class="section-label">
+        <span class="section-label-line"></span>
+        <span class="section-label-text">Témoignages</span>
+      </div>
+      <h2 class="section-title" style="color:var(--noir)">La confiance de nos clients,<br />notre plus grande fierté.</h2>
+      <div class="or-rule"></div>
+    </div>
+
+    <div class="temoignages-grid">
+
+      <div class="temoignage-card reveal reveal-delay-1">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <span class="quote-mark">"</span>
+        <p class="temoignage-text">
+          "Delmas & Associés nous a accompagnés sur l'acquisition de notre principal concurrent.
+          La rigueur de l'équipe, la réactivité et la qualité des conseils ont été déterminants
+          pour conclure cette opération dans les meilleures conditions."
+        </p>
+        <div class="temoignage-author">
+          <strong>Thomas Renard</strong>
+          <span>PDG — Groupe Renard Industries, Rouen</span>
+        </div>
+      </div>
+
+      <div class="temoignage-card reveal reveal-delay-2">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <span class="quote-mark">"</span>
+        <p class="temoignage-text">
+          "Lors d'un redressement fiscal significatif, Maître Vauclaire a su défendre nos
+          intérêts avec une précision chirurgicale. Résultat : un dégrèvement total.
+          Une expertise rare, un résultat exceptionnel."
+        </p>
+        <div class="temoignage-author">
+          <strong>Sophie Léveillé</strong>
+          <span>DG — Léveillé Promotion, Le Havre</span>
+        </div>
+      </div>
+
+      <div class="temoignage-card reveal reveal-delay-3">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <span class="quote-mark">"</span>
+        <p class="temoignage-text">
+          "La restructuration sociale de nos 280 collaborateurs était un exercice délicat.
+          Maître Marchand a géré les négociations avec une intelligence et une empathie
+          remarquables. Nous n'aurions pas pu rêver meilleur partenaire."
+        </p>
+        <div class="temoignage-author">
+          <strong>Frédéric Bonnet</strong>
+          <span>DRH — Bonnet Logistique, Caen</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- RENDEZ-VOUS                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="rdv">
+  <div class="container">
+    <div class="rdv-grid">
+
+      <!-- Formulaire -->
+      <div class="rdv-form-side reveal">
+        <div class="section-label" style="margin-bottom:16px;">
+          <span class="section-label-line"></span>
+          <span class="section-label-text">Prise de contact</span>
+        </div>
+        <h2 class="section-title">Prenez rendez-vous<br />avec nos associés.</h2>
+        <div class="or-rule"></div>
+        <p>Réponse garantie sous 24 heures. Premier entretien téléphonique offert.</p>
+
+        <form onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required />
+            </div>
+            <div class="form-group">
+              <label for="societe">Société</label>
+              <input type="text" id="societe" name="societe" placeholder="Dupont SAS" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Adresse e-mail</label>
+              <input type="email" id="email" name="email" placeholder="jean@dupont.fr" required />
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="domaine">Domaine juridique</label>
+            <select id="domaine" name="domaine" required>
+              <option value="" disabled selected>Sélectionnez un domaine</option>
+              <option value="affaires">Droit des affaires</option>
+              <option value="fiscal">Droit fiscal</option>
+              <option value="ma">Fusions-acquisitions</option>
+              <option value="contentieux">Contentieux</option>
+              <option value="immobilier">Droit immobilier</option>
+              <option value="social">Droit social</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Votre situation</label>
+            <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou votre besoin juridique…"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit">Envoyer ma demande</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Infos cabinet -->
+      <div class="rdv-info-side reveal reveal-delay-2">
+        <p class="rdv-info-label">Nous trouver</p>
+
+        <div class="info-block">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <strong>Adresse</strong>
+            <p>14 rue du Général Leclerc<br />76000 Rouen, Normandie</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <strong>Téléphone</strong>
+            <a href="tel:+33235001400">+33 (0)2 35 00 14 00</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <strong>E-mail</strong>
+            <a href="mailto:contact@delmas-associes.fr">contact@delmas-associes.fr</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <strong>Horaires</strong>
+            <div class="horaires-grid">
+              <span class="horaire-item">Lun–Ven</span>
+              <span class="horaire-item"><span>08h30 – 19h00</span></span>
+              <span class="horaire-item">Samedi</span>
+              <span class="horaire-item"><span>Sur rendez-vous</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <span class="nav-logo">Delmas <span style="color:var(--or)">&</span> Associés</span>
+        <p>
+          Cabinet d'avocats d'affaires à Rouen. Excellence, rigueur et engagement
+          au service de votre réussite depuis 2004.
+        </p>
+        <div class="footer-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span>Membre du Barreau de Rouen</span>
+        </div>
+      </div>
+
+      <!-- Cabinet -->
+      <div class="footer-col">
+        <h4>Cabinet</h4>
+        <ul>
+          <li><a href="#cabinet">À propos</a></li>
+          <li><a href="#equipe">Notre équipe</a></li>
+          <li><a href="#temoignages">Témoignages</a></li>
+          <li><a href="#rdv">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Expertises -->
+      <div class="footer-col">
+        <h4>Expertises</h4>
+        <ul>
+          <li><a href="#expertises">Droit des affaires</a></li>
+          <li><a href="#expertises">Droit fiscal</a></li>
+          <li><a href="#expertises">Fusions-acquisitions</a></li>
+          <li><a href="#expertises">Contentieux</a></li>
+          <li><a href="#expertises">Droit immobilier</a></li>
+          <li><a href="#expertises">Droit social</a></li>
+        </ul>
+      </div>
+
+      <!-- Légal -->
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">RGPD</a></li>
+          <li><a href="#">Honoraires</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Delmas & Associés. Tous droits réservés.</p>
+      <p>
+        <a href="#">Mentions légales</a>
+        &nbsp;·&nbsp;
+        <a href="#">Ordre des avocats de Rouen</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                                      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<script>
+  /* ─ NAV scroll ─────────────────────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ─ Hamburger ──────────────────────────────────────────────────── */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link, .mobile-menu .nav-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  /* ─ Scroll reveal ──────────────────────────────────────────────── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ─ Form submit ────────────────────────────────────────────────── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+
+    btn.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.textContent = 'Message envoyé';
+      btn.style.background = '#2A7A2A';
+
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }, 1400);
+  }
+
+  /* ─ Active nav link on scroll ─────────────────────────────────── */
+  const sections   = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.style.color = '');
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.style.color = 'var(--or)';
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => sectionObserver.observe(s));
+</script>
+
+</body>
+</html>

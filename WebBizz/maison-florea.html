@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Floréa — Fleuriste haut de gamme à Rouen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --beige:    #F5F0E8;
+      --blanc:    #FAFAF7;
+      --noir:     #1A1A1A;
+      --sauge:    #7D9A77;
+      --sauge-dk: #4e6b4a;
+      --or:       #C9A464;
+      --or-lt:    #e8c88a;
+      --gris:     #8a8880;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--blanc);
+      color: var(--noir);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 72px;
+      background: rgba(250, 250, 247, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201, 164, 100, 0.18);
+      transition: box-shadow 0.4s;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 32px rgba(26,26,26,0.08);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--noir);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo span {
+      color: var(--sauge);
+    }
+
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.4rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--noir);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--or);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover { color: var(--sauge); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .btn-reserver {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background: var(--sauge);
+      color: var(--blanc) !important;
+      border-radius: 40px;
+      font-size: 0.82rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      text-decoration: none;
+      transition: background 0.35s, transform 0.3s, box-shadow 0.35s;
+    }
+
+    .btn-reserver::after { display: none !important; }
+
+    .btn-reserver:hover {
+      background: var(--sauge-dk) !important;
+      color: var(--blanc) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(125, 154, 119, 0.35);
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--noir);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile menu */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: var(--blanc);
+      border-bottom: 1px solid rgba(201,164,100,0.18);
+      padding: 1.5rem 5vw 2rem;
+      flex-direction: column;
+      gap: 1.2rem;
+      z-index: 999;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--noir);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #2e3a2c 0%, #3a4a35 30%, #1e2a1c 60%, #0f1a0d 100%);
+    }
+
+    /* Cercles décoratifs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,240,232,0.06) 0%, transparent 70%);
+      top: -150px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,164,100,0.08) 0%, transparent 70%);
+      bottom: -80px; left: -60px;
+      pointer-events: none;
+    }
+
+    /* Motif floral CSS en fond */
+    .hero-bg-ornament {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        radial-gradient(ellipse 2px 60px at 20% 30%, var(--beige) 0%, transparent 100%),
+        radial-gradient(ellipse 2px 40px at 22% 28%, var(--beige) 0%, transparent 100%),
+        radial-gradient(ellipse 2px 60px at 80% 70%, var(--beige) 0%, transparent 100%),
+        radial-gradient(ellipse 2px 40px at 78% 68%, var(--beige) 0%, transparent 100%),
+        radial-gradient(ellipse 60px 2px at 50% 10%, var(--beige) 0%, transparent 100%),
+        radial-gradient(ellipse 60px 2px at 50% 90%, var(--beige) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Grandes fleurs SVG fantôme */
+    .hero-floral-left,
+    .hero-floral-right {
+      position: absolute;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    .hero-floral-left { bottom: -60px; left: -80px; width: 420px; }
+    .hero-floral-right { top: -60px; right: -80px; width: 380px; transform: rotate(180deg); }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 5vw;
+      max-width: 860px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--beige);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.55s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--or-lt);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.65);
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.78s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 1s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--or);
+      color: var(--noir);
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.4s, transform 0.35s, box-shadow 0.4s;
+    }
+
+    .btn-primary:hover {
+      background: var(--or-lt);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(201,164,100,0.4);
+    }
+
+    .hero-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(245,240,232,0.7);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245,240,232,0.25);
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .hero-link:hover {
+      color: var(--or-lt);
+      border-color: var(--or-lt);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.6s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--or) 0%, transparent 100%);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* =============================================
+       SECTION COMMUNE
+    ============================================= */
+    section { padding: 100px 5vw; }
+
+    .section-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--noir);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--gris);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 3.5rem;
+    }
+
+    /* =============================================
+       GALERIE FLORALE
+    ============================================= */
+    .galerie { background: var(--beige); }
+
+    .galerie-header { text-align: center; }
+    .galerie-header .section-subtitle { margin: 0 auto 3.5rem; }
+
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .galerie-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+    }
+
+    .galerie-card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .galerie-card:hover .galerie-card-inner {
+      transform: scale(1.06);
+    }
+
+    .galerie-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,26,26,0);
+      transition: background 0.45s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1.8rem;
+    }
+
+    .galerie-card:hover .galerie-card-overlay {
+      background: rgba(26,26,26,0.55);
+    }
+
+    .galerie-card-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-style: italic;
+      color: white;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      text-align: center;
+    }
+
+    .galerie-card:hover .galerie-card-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Couleurs des cartes */
+    .gc-1 .galerie-card-inner {
+      background: linear-gradient(160deg, #f7cfd4 0%, #e8a0aa 40%, #c97e8a 100%);
+    }
+    .gc-1 .galerie-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80px 120px at 30% 20%, rgba(255,255,255,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 60px 90px at 70% 60%, rgba(255,255,255,0.2) 0%, transparent 70%),
+        radial-gradient(circle 40px at 50% 40%, rgba(255,200,210,0.4) 0%, transparent 60%);
+    }
+
+    .gc-2 .galerie-card-inner {
+      background: linear-gradient(145deg, #c8ddc5 0%, #a0c49d 45%, #6f9e6b 100%);
+    }
+    .gc-2 .galerie-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90px 70px at 60% 25%, rgba(255,255,255,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 50px 80px at 25% 65%, rgba(255,255,255,0.15) 0%, transparent 70%);
+    }
+
+    .gc-3 .galerie-card-inner {
+      background: linear-gradient(155deg, #faf4e6 0%, #f0e2c8 50%, #dfc9a0 100%);
+    }
+    .gc-3 .galerie-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle 60px at 40% 30%, rgba(255,255,255,0.5) 0%, transparent 60%),
+        radial-gradient(ellipse 80px 50px at 65% 70%, rgba(201,164,100,0.2) 0%, transparent 70%);
+    }
+
+    .gc-4 .galerie-card-inner {
+      background: linear-gradient(140deg, #f2dfe0 0%, #e8c5c7 40%, #d4a5a8 100%);
+    }
+    .gc-4 .galerie-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70px 110px at 70% 20%, rgba(255,255,255,0.28) 0%, transparent 70%),
+        radial-gradient(circle 50px at 30% 70%, rgba(255,180,190,0.3) 0%, transparent 60%);
+    }
+
+    .gc-5 .galerie-card-inner {
+      background: linear-gradient(150deg, #d4a87a 0%, #b8896a 45%, #9a6d54 100%);
+    }
+    .gc-5 .galerie-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80px 60px at 50% 30%, rgba(255,255,255,0.18) 0%, transparent 70%),
+        radial-gradient(circle 45px at 30% 60%, rgba(255,220,180,0.25) 0%, transparent 60%);
+    }
+
+    .gc-6 .galerie-card-inner {
+      background: linear-gradient(135deg, #8fa88c 0%, #7d9a77 40%, #5e7a5b 100%);
+    }
+    .gc-6 .galerie-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 100px 70px at 40% 20%, rgba(255,255,255,0.2) 0%, transparent 70%),
+        radial-gradient(circle 55px at 65% 65%, rgba(200,230,200,0.2) 0%, transparent 60%);
+    }
+
+    /* Fleur SVG décorative dans les cartes */
+    .galerie-card-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='60' rx='18' ry='36' fill='rgba(255,255,255,0.12)' transform='rotate(0 100 100)'/%3E%3Cellipse cx='100' cy='60' rx='18' ry='36' fill='rgba(255,255,255,0.12)' transform='rotate(60 100 100)'/%3E%3Cellipse cx='100' cy='60' rx='18' ry='36' fill='rgba(255,255,255,0.12)' transform='rotate(120 100 100)'/%3E%3Ccircle cx='100' cy='100' r='14' fill='rgba(255,255,255,0.18)'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center 35%;
+      background-size: 55%;
+      opacity: 0.6;
+    }
+
+    /* =============================================
+       PRESTATIONS
+    ============================================= */
+    .prestations { background: var(--blanc); }
+
+    .prestations-header { text-align: center; }
+    .prestations-header .section-subtitle { margin: 0 auto 4rem; }
+
+    .prestations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .presta-card {
+      background: var(--blanc);
+      border: 1px solid rgba(201,164,100,0.2);
+      border-radius: 20px;
+      padding: 2.8rem 2.2rem;
+      transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .presta-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--or), var(--sauge));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .presta-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(26,26,26,0.1);
+      border-color: rgba(201,164,100,0.35);
+    }
+
+    .presta-card:hover::before { opacity: 1; }
+
+    .presta-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--beige);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .presta-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--sauge);
+    }
+
+    .presta-card h3 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--noir);
+      margin-bottom: 0.9rem;
+    }
+
+    .presta-card p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--gris);
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+    }
+
+    .presta-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--or);
+    }
+
+    /* =============================================
+       MARIAGE
+    ============================================= */
+    .mariage {
+      background: linear-gradient(135deg, #f5f0e8 0%, #ede6d8 100%);
+      overflow: hidden;
+    }
+
+    .mariage-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .mariage-text { }
+
+    .mariage-text .section-title { margin-bottom: 1.4rem; }
+
+    .mariage-desc {
+      font-size: 0.97rem;
+      font-weight: 300;
+      color: var(--gris);
+      line-height: 1.9;
+      margin-bottom: 2.4rem;
+    }
+
+    .mariage-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .mariage-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--noir);
+    }
+
+    .mariage-list li::before {
+      content: '';
+      width: 20px; height: 20px;
+      background: var(--sauge);
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 10l3.5 3.5L15 7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: cover;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--noir);
+      border: 1.5px solid var(--noir);
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--noir);
+      color: var(--blanc);
+      transform: translateY(-2px);
+    }
+
+    /* Mockup CSS côté droit */
+    .mariage-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mockup-frame {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow:
+        0 30px 80px rgba(26,26,26,0.18),
+        0 8px 24px rgba(26,26,26,0.1);
+      position: relative;
+    }
+
+    .mockup-main {
+      background: linear-gradient(155deg, #3a4a35 0%, #2c3829 100%);
+      aspect-ratio: 3/4;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+
+    /* Éléments floraux CSS dans le mockup */
+    .mockup-floral-1 {
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,164,100,0.15) 0%, transparent 70%);
+    }
+
+    .mockup-floral-2 {
+      position: absolute;
+      bottom: 80px; left: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125,154,119,0.2) 0%, transparent 70%);
+    }
+
+    .mockup-petal {
+      position: absolute;
+      top: 25%; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mockup-petal svg {
+      width: 160px;
+      height: 160px;
+      opacity: 0.18;
+    }
+
+    .mockup-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(250,250,247,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 1.8rem;
+    }
+
+    .mockup-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.7rem;
+    }
+
+    .mockup-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--beige);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .mockup-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.55);
+    }
+
+    /* Badge flottant */
+    .mockup-badge {
+      position: absolute;
+      top: 2rem; right: -1.5rem;
+      background: var(--or);
+      color: var(--noir);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      box-shadow: 0 6px 20px rgba(201,164,100,0.35);
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       TÉMOIGNAGES
+    ============================================= */
+    .temoignages { background: var(--blanc); }
+
+    .temoignages-header { text-align: center; margin-bottom: 0; }
+
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .temoignage-card {
+      background: var(--blanc);
+      border: 1px solid rgba(26,26,26,0.07);
+      border-radius: 20px;
+      padding: 2.4rem;
+      position: relative;
+      transition: transform 0.4s, box-shadow 0.4s;
+      backdrop-filter: blur(8px);
+    }
+
+    .temoignage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 50px rgba(26,26,26,0.09);
+    }
+
+    .temoignage-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 1.4rem; left: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--or);
+      opacity: 0.25;
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 1.2rem;
+    }
+
+    .star {
+      color: var(--or);
+      font-size: 1rem;
+    }
+
+    .temoignage-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.85;
+      margin-bottom: 1.8rem;
+      font-style: italic;
+    }
+
+    .temoignage-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sauge), var(--sauge-dk));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .author-info strong {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--noir);
+    }
+
+    .author-info span {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--gris);
+    }
+
+    /* =============================================
+       RÉSERVATION
+    ============================================= */
+    .reservation {
+      background: linear-gradient(145deg, #2e3a2c 0%, #3a4a35 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reservation::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,164,100,0.08) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      pointer-events: none;
+    }
+
+    .reservation::after {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,240,232,0.04) 0%, transparent 70%);
+      bottom: -100px; left: -50px;
+      pointer-events: none;
+    }
+
+    .reservation-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .reservation .section-eyebrow { color: var(--or); }
+    .reservation .section-title { color: var(--beige); }
+    .reservation .section-subtitle {
+      color: rgba(245,240,232,0.55);
+      margin: 0 auto 3rem;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      text-align: left;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.6);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(245,240,232,0.06);
+      border: 1px solid rgba(245,240,232,0.14);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--beige);
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5l5 5 5-5' stroke='rgba(245,240,232,0.5)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 18px;
+      padding-right: 42px;
+      background-color: rgba(245,240,232,0.06);
+    }
+
+    .form-group select option {
+      background: #2e3a2c;
+      color: var(--beige);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(245,240,232,0.3);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(201,164,100,0.5);
+      background: rgba(245,240,232,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-form {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-form button {
+      padding: 16px 48px;
+      background: var(--or);
+      color: var(--noir);
+      border: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.4s, transform 0.35s, box-shadow 0.4s;
+    }
+
+    .btn-form button:hover {
+      background: var(--or-lt);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(201,164,100,0.35);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: #0f1a0d;
+      padding: 70px 5vw 40px;
+      color: rgba(245,240,232,0.6);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(245,240,232,0.08);
+    }
+
+    .footer-brand .nav-logo {
+      color: var(--beige);
+      margin-bottom: 1rem;
+      display: inline-flex;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.45);
+      margin-bottom: 1.4rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(245,240,232,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      border-color: var(--or);
+      background: rgba(201,164,100,0.1);
+    }
+
+    .social-link svg {
+      width: 14px; height: 14px;
+      stroke: rgba(245,240,232,0.5);
+      transition: stroke 0.3s;
+    }
+
+    .social-link:hover svg { stroke: var(--or); }
+
+    .footer-col h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--beige);
+      margin-bottom: 1.4rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover { color: var(--or); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.3);
+    }
+
+    .footer-bottom span {
+      color: var(--or);
+    }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.2); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.34s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .galerie-grid { grid-template-columns: repeat(2, 1fr); }
+      .gc-6 { display: none; }
+      .prestations-grid { grid-template-columns: 1fr 1fr; }
+      .mariage-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .mariage-visual { max-width: 380px; margin: 0 auto; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 70px 5vw; }
+
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .galerie-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+      .prestations-grid { grid-template-columns: 1fr; }
+
+      .temoignages-grid { grid-template-columns: 1fr; }
+
+      .form { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .mockup-badge { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .galerie-grid { grid-template-columns: 1fr; }
+      .gc-4, .gc-5, .gc-6 { display: none; }
+
+      .hero-cta { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <!-- Logo SVG floral -->
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="8"  rx="4" ry="7" fill="#7D9A77" opacity="0.7" transform="rotate(0 16 16)"/>
+        <ellipse cx="16" cy="8"  rx="4" ry="7" fill="#7D9A77" opacity="0.7" transform="rotate(60 16 16)"/>
+        <ellipse cx="16" cy="8"  rx="4" ry="7" fill="#7D9A77" opacity="0.7" transform="rotate(120 16 16)"/>
+        <circle cx="16" cy="16" r="4" fill="#C9A464"/>
+      </svg>
+      Maison <span>Floréa</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#prestations">Prestations</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#mariage">Mariage</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#reservation" class="btn-reserver">Réserver</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="#prestations" onclick="closeMobile()">Prestations</a>
+    <a href="#galerie" onclick="closeMobile()">Galerie</a>
+    <a href="#mariage" onclick="closeMobile()">Mariage</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#reservation" onclick="closeMobile()" class="btn-reserver" style="align-self:flex-start;">Réserver</a>
+  </div>
+
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg-ornament"></div>
+
+    <!-- Fleur décorative gauche -->
+    <div class="hero-floral-left">
+      <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="210" cy="90"  rx="42" ry="90" fill="#F5F0E8" transform="rotate(0 210 210)"/>
+        <ellipse cx="210" cy="90"  rx="42" ry="90" fill="#F5F0E8" transform="rotate(45 210 210)"/>
+        <ellipse cx="210" cy="90"  rx="42" ry="90" fill="#F5F0E8" transform="rotate(90 210 210)"/>
+        <ellipse cx="210" cy="90"  rx="42" ry="90" fill="#F5F0E8" transform="rotate(135 210 210)"/>
+        <circle cx="210" cy="210" r="42" fill="#C9A464"/>
+      </svg>
+    </div>
+
+    <!-- Fleur décorative droite -->
+    <div class="hero-floral-right">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="190" cy="80"  rx="38" ry="80" fill="#F5F0E8" transform="rotate(0 190 190)"/>
+        <ellipse cx="190" cy="80"  rx="38" ry="80" fill="#F5F0E8" transform="rotate(60 190 190)"/>
+        <ellipse cx="190" cy="80"  rx="38" ry="80" fill="#F5F0E8" transform="rotate(120 190 190)"/>
+        <circle cx="190" cy="190" r="36" fill="#7D9A77"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Fleuriste — Rouen, Normandie</p>
+      <h1 class="hero-title">
+        L'art floral au service<br/>
+        de vos <em>plus beaux moments.</em>
+      </h1>
+      <p class="hero-subtitle">
+        Compositions sur-mesure, décors de mariage et créations florales d'exception —
+        imaginés avec soin, pour vous émouvoir.
+      </p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn-primary">
+          <!-- Fleur -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20"/>
+          </svg>
+          Prendre rendez-vous
+        </a>
+        <a href="#galerie" class="hero-link">Voir nos créations ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       GALERIE FLORALE
+  ============================================= -->
+  <section class="galerie" id="galerie">
+    <div class="galerie-header reveal">
+      <span class="section-eyebrow">Notre univers</span>
+      <h2 class="section-title">Une galerie d'émotions florales</h2>
+      <p class="section-subtitle">
+        Chaque composition est une oeuvre pensée pour sublimer votre espace, votre moment, votre histoire.
+      </p>
+    </div>
+
+    <div class="galerie-grid">
+      <div class="galerie-card gc-1 reveal reveal-delay-1">
+        <div class="galerie-card-inner"></div>
+        <div class="galerie-card-overlay">
+          <span class="galerie-card-label">Roses de Cérémonie</span>
+        </div>
+      </div>
+      <div class="galerie-card gc-2 reveal reveal-delay-2">
+        <div class="galerie-card-inner"></div>
+        <div class="galerie-card-overlay">
+          <span class="galerie-card-label">Verdure & Élégance</span>
+        </div>
+      </div>
+      <div class="galerie-card gc-3 reveal reveal-delay-3">
+        <div class="galerie-card-inner"></div>
+        <div class="galerie-card-overlay">
+          <span class="galerie-card-label">Compositions Dorées</span>
+        </div>
+      </div>
+      <div class="galerie-card gc-4 reveal reveal-delay-1">
+        <div class="galerie-card-inner"></div>
+        <div class="galerie-card-overlay">
+          <span class="galerie-card-label">Bouquets Blush</span>
+        </div>
+      </div>
+      <div class="galerie-card gc-5 reveal reveal-delay-2">
+        <div class="galerie-card-inner"></div>
+        <div class="galerie-card-overlay">
+          <span class="galerie-card-label">Tons Terracotta</span>
+        </div>
+      </div>
+      <div class="galerie-card gc-6 reveal reveal-delay-3">
+        <div class="galerie-card-inner"></div>
+        <div class="galerie-card-overlay">
+          <span class="galerie-card-label">Art de la Table</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       PRESTATIONS
+  ============================================= -->
+  <section class="prestations" id="prestations">
+    <div class="prestations-header reveal">
+      <span class="section-eyebrow">Ce que nous créons</span>
+      <h2 class="section-title">Nos prestations florales</h2>
+      <p class="section-subtitle">
+        Du bouquet de mariée à la décoration d'entreprise, nous concevons chaque détail avec passion et précision.
+      </p>
+    </div>
+
+    <div class="prestations-grid">
+      <!-- Mariage -->
+      <div class="presta-card reveal reveal-delay-1">
+        <div class="presta-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="14" r="4" stroke="#7D9A77"/>
+            <ellipse cx="14" cy="6" rx="3" ry="5.5" stroke="#7D9A77" fill="none"/>
+            <ellipse cx="14" cy="6" rx="3" ry="5.5" stroke="#7D9A77" fill="none" transform="rotate(60 14 14)"/>
+            <ellipse cx="14" cy="6" rx="3" ry="5.5" stroke="#7D9A77" fill="none" transform="rotate(120 14 14)"/>
+          </svg>
+        </div>
+        <h3>Mariages</h3>
+        <p>
+          Du bouquet de mariée aux compositions de table, en passant par les arches florales et la décoration de salle — nous créons votre univers floral unique.
+        </p>
+        <div class="presta-price">À partir de 890 €</div>
+      </div>
+
+      <!-- Événements entreprise -->
+      <div class="presta-card reveal reveal-delay-2">
+        <div class="presta-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#7D9A77" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="8" width="20" height="14" rx="2"/>
+            <path d="M9 8V6a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2"/>
+            <path d="M4 14h20"/>
+            <circle cx="14" cy="14" r="1.5" fill="#7D9A77" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Événements d'entreprise</h3>
+        <p>
+          Séminaires, galas, inaugurations — nos équipes interviennent pour sublimer vos espaces professionnels avec des créations florales sophistiquées.
+        </p>
+        <div class="presta-price">À partir de 450 €</div>
+      </div>
+
+      <!-- Compositions quotidiennes -->
+      <div class="presta-card reveal reveal-delay-3">
+        <div class="presta-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#7D9A77" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 22c0 0-8-5-8-11a8 8 0 0 1 16 0c0 6-8 11-8 11z"/>
+            <circle cx="14" cy="11" r="2.5"/>
+          </svg>
+        </div>
+        <h3>Compositions quotidiennes</h3>
+        <p>
+          Bouquets de saison, abonnements floraux pour hôtels et restaurants, créations personnalisées pour offrir ou s'offrir — la beauté au quotidien.
+        </p>
+        <div class="presta-price">À partir de 65 €</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       MARIAGE
+  ============================================= -->
+  <section class="mariage" id="mariage">
+    <div class="mariage-inner">
+      <!-- Texte -->
+      <div class="mariage-text reveal">
+        <span class="section-eyebrow">Mariage sur mesure</span>
+        <h2 class="section-title">Votre jour mérite chaque pétale</h2>
+        <p class="mariage-desc">
+          Nous accompagnons les futurs mariés de la première consultation jusqu'au grand jour.
+          Chaque fleur est choisie avec soin, chaque composition reflète votre histoire.
+          Parce que votre mariage est unique, notre création l'est aussi.
+        </p>
+        <ul class="mariage-list">
+          <li>Bouquet de mariée & boutonnière sur-mesure</li>
+          <li>Décoration de cérémonie civile et religieuse</li>
+          <li>Arche florale, chemin de fleurs, allée</li>
+          <li>Compositions de table et art de la table floral</li>
+          <li>Livraison et installation le jour J</li>
+          <li>Consultation personnalisée incluse</li>
+        </ul>
+        <a href="#reservation" class="btn-secondary">
+          Demander un devis gratuit
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 10h10M11 6l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Visuel mockup -->
+      <div class="mariage-visual reveal reveal-delay-2">
+        <div class="mockup-frame">
+          <div class="mockup-main">
+            <div class="mockup-floral-1"></div>
+            <div class="mockup-floral-2"></div>
+
+            <!-- Fleur SVG centrale -->
+            <div class="mockup-petal">
+              <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="80" cy="30" rx="16" ry="28" fill="#F5F0E8" transform="rotate(0 80 80)"/>
+                <ellipse cx="80" cy="30" rx="16" ry="28" fill="#F5F0E8" transform="rotate(60 80 80)"/>
+                <ellipse cx="80" cy="30" rx="16" ry="28" fill="#F5F0E8" transform="rotate(120 80 80)"/>
+                <ellipse cx="80" cy="30" rx="16" ry="28" fill="#C9A464" opacity="0.6" transform="rotate(30 80 80)"/>
+                <ellipse cx="80" cy="30" rx="16" ry="28" fill="#C9A464" opacity="0.6" transform="rotate(90 80 80)"/>
+                <ellipse cx="80" cy="30" rx="16" ry="28" fill="#C9A464" opacity="0.6" transform="rotate(150 80 80)"/>
+                <circle cx="80" cy="80" r="18" fill="#C9A464" opacity="0.9"/>
+              </svg>
+            </div>
+
+            <div class="mockup-content">
+              <div class="mockup-tag">Maison Floréa — Collection Mariage 2025</div>
+              <div class="mockup-title">La Collection<br/>Élégance Blanche</div>
+              <div class="mockup-sub">Pivoines · Roses · Eucalyptus · Gypsophile</div>
+            </div>
+          </div>
+
+          <div class="mockup-badge">Réservations 2025 ouvertes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       TÉMOIGNAGES
+  ============================================= -->
+  <section class="temoignages" id="temoignages">
+    <div class="temoignages-header reveal">
+      <span class="section-eyebrow">Ce qu'ils disent</span>
+      <h2 class="section-title">Ils nous ont confié leur plus beau jour</h2>
+      <p class="section-subtitle" style="margin: 0 auto 3.5rem;">
+        La satisfaction de nos clients est notre plus belle récompense.
+      </p>
+    </div>
+
+    <div class="temoignages-grid">
+      <div class="temoignage-card reveal reveal-delay-1">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="temoignage-text">
+          "Maison Floréa a transformé notre salle en quelque chose d'absolument magique.
+          Chaque composition était parfaite, les couleurs exactement comme je les avais imaginées.
+          Un talent rare et une équipe d'une gentillesse exceptionnelle."
+        </p>
+        <div class="temoignage-author">
+          <div class="author-avatar">C</div>
+          <div class="author-info">
+            <strong>Claire & Thomas Mercier</strong>
+            <span>Mariage — Château de Belmesnil, juin 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="temoignage-card reveal reveal-delay-2">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="temoignage-text">
+          "Nous avons fait appel à Maison Floréa pour notre gala annuel. Le résultat était
+          époustouflant — une élégance rare qui a impressionné tous nos invités.
+          Je recommande sans la moindre hésitation."
+        </p>
+        <div class="temoignage-author">
+          <div class="author-avatar">S</div>
+          <div class="author-info">
+            <strong>Sophie Arnaud</strong>
+            <span>Directrice marketing — Groupe Lumière, Rouen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="temoignage-card reveal reveal-delay-3">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="temoignage-text">
+          "Mon bouquet de mariée était un rêve devenu réalité. Anaïs a su interpréter mes envies
+          avec une sensibilité incroyable. Je pleurais d'émotion en le découvrant.
+          Merci infiniment, Maison Floréa."
+        </p>
+        <div class="temoignage-author">
+          <div class="author-avatar">L</div>
+          <div class="author-info">
+            <strong>Lucie Fontaine</strong>
+            <span>Mariage — Abbaye de Jumièges, septembre 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       RÉSERVATION
+  ============================================= -->
+  <section class="reservation" id="reservation">
+    <div class="reservation-inner">
+      <div class="reveal">
+        <span class="section-eyebrow">Prendre contact</span>
+        <h2 class="section-title">Parlons de votre projet</h2>
+        <p class="section-subtitle">
+          Dites-nous tout — nous reviendrons vers vous dans les 24 heures pour vous proposer un rendez-vous de consultation offert.
+        </p>
+      </div>
+
+      <form class="form reveal" id="contact" onsubmit="handleSubmit(event)">
+        <div class="form-group reveal-delay-1">
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" name="nom" placeholder="Marie Dupont" required />
+        </div>
+
+        <div class="form-group reveal-delay-1">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" placeholder="marie@example.fr" required />
+        </div>
+
+        <div class="form-group reveal-delay-2">
+          <label for="date">Date de l'événement</label>
+          <input type="date" id="date" name="date" />
+        </div>
+
+        <div class="form-group reveal-delay-2">
+          <label for="type">Type d'événement</label>
+          <select id="type" name="type">
+            <option value="" disabled selected>Choisir...</option>
+            <option value="mariage">Mariage</option>
+            <option value="evenement-entreprise">Événement d'entreprise</option>
+            <option value="anniversaire">Anniversaire</option>
+            <option value="bapteme">Baptême</option>
+            <option value="deuil">Funérailles / Deuil</option>
+            <option value="decoration">Décoration d'espace</option>
+            <option value="autre">Autre occasion</option>
+          </select>
+        </div>
+
+        <div class="form-group full reveal-delay-3">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" placeholder="Décrivez votre projet, vos envies, le style souhaité, votre budget approximatif..."></textarea>
+        </div>
+
+        <div class="btn-form reveal-delay-3">
+          <button type="submit">
+            Envoyer ma demande →
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none">
+            <ellipse cx="16" cy="8"  rx="4" ry="7" fill="#7D9A77" opacity="0.7" transform="rotate(0 16 16)"/>
+            <ellipse cx="16" cy="8"  rx="4" ry="7" fill="#7D9A77" opacity="0.7" transform="rotate(60 16 16)"/>
+            <ellipse cx="16" cy="8"  rx="4" ry="7" fill="#7D9A77" opacity="0.7" transform="rotate(120 16 16)"/>
+            <circle cx="16" cy="16" r="4" fill="#C9A464"/>
+          </svg>
+          Maison <span>Floréa</span>
+        </a>
+        <p class="footer-desc">
+          Fleuriste haut de gamme à Rouen, spécialisée dans les mariages et événements d'exception.
+          Chaque création est pensée avec soin pour vous offrir la beauté du vivant.
+        </p>
+        <div class="footer-social">
+          <!-- Instagram -->
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <!-- Pinterest -->
+          <a href="#" class="social-link" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.17 1.22-5.17s-.31-.62-.31-1.55c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .9-.57 2.24-.86 3.48-.25 1.04.52 1.89 1.54 1.89 1.84 0 3.09-2.37 3.09-5.18 0-2.14-1.44-3.64-3.49-3.64-2.38 0-3.77 1.79-3.77 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23-.06.26-.2.83-.23.95-.04.15-.13.18-.3.11-1.11-.52-1.8-2.13-1.8-3.43 0-2.79 2.03-5.35 5.85-5.35 3.07 0 5.46 2.19 5.46 5.11 0 3.05-1.92 5.5-4.58 5.5-.89 0-1.73-.47-2.02-1.01l-.55 2.05c-.2.76-.73 1.72-1.09 2.3.82.25 1.69.39 2.59.39 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Prestations -->
+      <div class="footer-col">
+        <h4>Prestations</h4>
+        <ul>
+          <li><a href="#mariage">Mariages</a></li>
+          <li><a href="#prestations">Événements</a></li>
+          <li><a href="#prestations">Compositions</a></li>
+          <li><a href="#prestations">Abonnements floraux</a></li>
+          <li><a href="#reservation">Devis gratuit</a></li>
+        </ul>
+      </div>
+
+      <!-- Informations -->
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#">Notre histoire</a></li>
+          <li><a href="#">Notre méthode</a></li>
+          <li><a href="#">Fleurs de saison</a></li>
+          <li><a href="#">Livraison Rouen</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <ul>
+          <li><a href="#">12 Rue du Gros-Horloge, Rouen</a></li>
+          <li><a href="tel:+33235001234">+33 (0)2 35 00 12 34</a></li>
+          <li><a href="mailto:contact@maison-florea.fr">contact@maison-florea.fr</a></li>
+          <li><a href="#">Lun–Sam : 9h–19h</a></li>
+          <li><a href="#">Dimanche : sur rendez-vous</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 <span>Maison Floréa</span>. Tous droits réservés. Rouen, Normandie.</p>
+      <p>Fait avec <span>&#9825;</span> pour les amoureux des fleurs</p>
+    </div>
+  </footer>
+
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
+  <script>
+    // ----- NAV scroll effect -----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ----- Mobile menu -----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      const spans = hamburger.querySelectorAll('span');
+      if (menuOpen) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      const spans = hamburger.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+
+    // ----- Scroll reveal -----
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ----- Form submit -----
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = 'Message envoyé ✓';
+      btn.style.background = 'var(--sauge)';
+      btn.style.color = 'white';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = 'Envoyer ma demande →';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3500);
+    }
+
+    // ----- Smooth anchor -----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 72; // nav height
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
