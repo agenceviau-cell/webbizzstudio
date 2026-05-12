@@ -1217,6 +1217,49 @@
       .cta-btns{flex-direction:column;align-items:center;}
       .hero-proof{flex-wrap:wrap;justify-content:center;}
       .porto-grid{grid-template-columns:1fr;}
+      .faq-grid{grid-template-columns:1fr;}
+    }
+
+    /* ── FAQ ─────────────────────────────────────────────── */
+    .faq-section{padding:100px 0;}
+    .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:52px;}
+    .faq-item{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;padding:28px 32px;
+      cursor:pointer;transition:border-color .25s,background .25s;
+    }
+    .faq-item:hover{background:rgba(108,60,255,.05);border-color:rgba(108,60,255,.22);}
+    .faq-item.open{background:rgba(108,60,255,.06);border-color:rgba(108,60,255,.28);}
+    .faq-q{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      font-family:'Poppins',sans-serif;font-size:14.5px;font-weight:600;
+      color:#fff;line-height:1.5;
+    }
+    .faq-icon{
+      width:24px;height:24px;border-radius:50%;flex-shrink:0;
+      background:rgba(108,60,255,.15);border:1px solid rgba(108,60,255,.25);
+      display:flex;align-items:center;justify-content:center;
+      transition:transform .25s,background .25s;
+    }
+    .faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(108,60,255,.3);}
+    .faq-icon svg{width:12px;height:12px;stroke:rgba(255,255,255,.7);stroke-width:2.5;stroke-linecap:round;}
+    .faq-a{
+      max-height:0;overflow:hidden;
+      font-size:14px;color:rgba(255,255,255,.58);
+      line-height:1.75;margin-top:0;
+      transition:max-height .35s ease,margin-top .25s;
+    }
+    .faq-item.open .faq-a{max-height:200px;margin-top:14px;}
+
+    /* ── TESTI PROJECT TAGS ───────────────────────────────── */
+    .testi-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;}
+    .testi-tag-item{
+      display:inline-flex;align-items:center;
+      padding:3px 10px;border-radius:20px;
+      background:rgba(108,60,255,.07);border:1px solid rgba(108,60,255,.15);
+      font-size:11px;color:rgba(255,255,255,.45);font-family:'Poppins',sans-serif;
+      letter-spacing:.02em;
     }
   </style>
 </head>
@@ -1255,6 +1298,7 @@
         <li><a href="#processus">Processus</a></li>
         <li><a href="#temoignages">Avis clients</a></li>
         <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -1613,6 +1657,11 @@
 
       <!-- Témoignage réel — PUR Réflexe -->
       <div class="testi-real reveal">
+        <div class="testi-tags">
+          <span class="testi-tag-item">Site vitrine premium</span>
+          <span class="testi-tag-item">Branding produit</span>
+          <span class="testi-tag-item">Offre Premium</span>
+        </div>
         <div class="testi-stars">
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
@@ -1629,6 +1678,11 @@
 
       <!-- Témoignage réel — Trois-Quart -->
       <div class="testi-real reveal d1">
+        <div class="testi-tags">
+          <span class="testi-tag-item">Site vitrine créatif</span>
+          <span class="testi-tag-item">Identité visuelle</span>
+          <span class="testi-tag-item">Design sur mesure</span>
+        </div>
         <div class="testi-stars">
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
@@ -1788,6 +1842,68 @@
         <a href="#contact" class="btn btn-primary"><span>Obtenir mon devis gratuit →</span></a>
         <a href="mailto:webbizz.agence@gmail.com" class="btn btn-ghost">Nous écrire →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ═══════════════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="tag">Questions fréquentes</div>
+      <h2>Tout ce que vous voulez<br><span class="grad-text">savoir avant de démarrer.</span></h2>
+      <p>Les réponses aux questions que tout le monde se pose — sans jargon.</p>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          Puis-je modifier mon site moi-même après la livraison ?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div>
+        </div>
+        <div class="faq-a">Votre site vous appartient à 100%. Pour toute modification future, nous proposons un tarif horaire défini à l'avance — ou nous pouvons vous guider pour les ajustements simples. Aucune dépendance envers WebBizz.</div>
+      </div>
+
+      <div class="faq-item reveal d1" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          Qui gère l'hébergement et le nom de domaine ?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div>
+        </div>
+        <div class="faq-a">L'hébergement est gratuit via nos partenaires techniques. Le nom de domaine est à votre charge, généralement entre 10 et 20€ par an. Nous configurons tout pour vous à la livraison — vous n'avez rien à faire.</div>
+      </div>
+
+      <div class="faq-item reveal d1" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          Et si j'ai besoin de plus de 5 pages ?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div>
+        </div>
+        <div class="faq-a">Chaque page supplémentaire est intégrée à votre devis personnalisé. Nous en discutons lors de l'appel découverte gratuit de 30 minutes — sans engagement de votre part. Aucune limite imposée.</div>
+      </div>
+
+      <div class="faq-item reveal d2" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          Comment se déroule le paiement ?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div>
+        </div>
+        <div class="faq-a">Un acompte de 50% est demandé au démarrage du projet, le solde à la livraison finale validée. Paiement par virement bancaire. Le prix est fixé à l'avance — aucune surprise, aucun frais caché.</div>
+      </div>
+
+      <div class="faq-item reveal d2" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          Que se passe-t-il après la livraison ?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div>
+        </div>
+        <div class="faq-a">Vous bénéficiez d'un suivi de 30 jours après mise en ligne pour corriger d'éventuels ajustements. Vous recevez tous vos fichiers et accès. Votre site reste en ligne sans abonnement obligatoire.</div>
+      </div>
+
+      <div class="faq-item reveal d3" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          Combien de temps prend la création ?
+          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div>
+        </div>
+        <div class="faq-a">7 jours ouvrés pour une offre Starter, 2 à 3 semaines pour une offre Premium. Le délai démarre une fois tous les éléments reçus (textes, photos, logo). Nous vous guidons pour préparer tout ça simplement.</div>
+      </div>
+
     </div>
   </div>
 </section>
